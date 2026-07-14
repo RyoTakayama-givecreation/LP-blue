@@ -104,11 +104,36 @@
     .side-label::before { content: ""; width: 32px; height: 2px; background: var(--sky); }
     .side-title {
       margin: 0 0 14px;
+      font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
       font-size: 30px;
-      font-weight: 700;
-      line-height: 1.38;
+      font-weight: 600;
+      letter-spacing: .025em;
+      line-height: 1.48;
     }
-    .side-title strong { color: var(--blue); }
+    .side-title strong {
+      position: relative;
+      z-index: 0;
+      display: inline-block;
+      padding: 0 .05em;
+      color: var(--blue);
+      font-size: 1.16em;
+      font-weight: 700;
+      letter-spacing: .01em;
+      isolation: isolate;
+    }
+    .side-title strong::after {
+      content: "";
+      position: absolute;
+      right: -.08em;
+      bottom: .12em;
+      left: -.08em;
+      z-index: -1;
+      height: .2em;
+      background: linear-gradient(90deg, rgba(30,161,228,.48), rgba(86,52,181,.28));
+      border-radius: 999px;
+      transform: skewX(-18deg);
+      transform-origin: left center;
+    }
     .side-copy {
       margin: 0 0 22px;
       color: var(--muted);
@@ -149,20 +174,25 @@
       border-radius: 999px;
       font-weight: 700;
       cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      transition: transform .2s ease, box-shadow .2s ease, background-position .3s ease, color .2s ease;
     }
     .btn:hover { transform: translateY(-2px); }
     .btn-primary {
       color: #fff;
-      background: var(--orange);
-      box-shadow: 0 9px 20px rgba(255, 79, 61, .3);
+      background: linear-gradient(105deg, var(--sky) 0%, var(--blue) 48%, var(--purple) 100%);
+      background-size: 140% 100%;
+      background-position: left center;
+      box-shadow: 0 9px 22px rgba(62, 79, 181, .28);
     }
-    .btn-primary:hover { background: var(--orange-dark); }
-    .btn-invert-hover { border: 2px solid var(--orange); }
+    .btn-primary:hover {
+      background-position: right center;
+      box-shadow: 0 11px 24px rgba(62, 79, 181, .34);
+    }
+    .btn-invert-hover { border: 2px solid var(--blue); }
     .btn-invert-hover:hover {
-      color: var(--orange);
+      color: var(--purple);
       background: #fff;
-      border-color: var(--orange);
+      border-color: var(--purple);
       box-shadow: 0 9px 20px rgba(16, 43, 82, .12);
     }
     .btn-secondary {
@@ -454,6 +484,16 @@
       letter-spacing: -.025em;
       line-height: 1;
     }
+    .salary .salary-range {
+      display: inline-block;
+      margin: 0 .08em;
+      font-family: "Noto Sans JP", "Hiragino Sans", sans-serif;
+      font-size: .55em;
+      font-style: normal;
+      font-weight: 500;
+      letter-spacing: 0;
+      transform: translateY(-.08em);
+    }
     .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0; }
     .tags span { padding: 5px 8px; color: #235a86; background: #eaf5fb; border-radius: 4px; font-size: 10px; font-weight: 600; }
     .job-card p { margin: 0; color: #202733; font-size: 12px; line-height: 1.8; }
@@ -689,6 +729,11 @@
       line-height: 1.55;
     }
     .final-copy h2 strong { color: var(--blue); }
+    .final-copy h2 > span,
+    .final-copy h2 > strong {
+      display: block;
+      white-space: nowrap;
+    }
     .final-copy p { color: var(--muted); font-size: 14px; line-height: 1.9; }
     .final-checks { display: grid; gap: 8px; margin-top: 20px; color: var(--navy); font-size: 12px; font-weight: 600; }
     .final-checks span::before { content: "✓"; margin-right: 8px; color: var(--orange); }
@@ -822,6 +867,49 @@
         background-size: 100% .2em;
         transition: none;
       }
+    }
+
+    /* Full-width centered hero */
+    .hero {
+      width: 100%;
+      height: auto;
+      min-height: 0;
+      aspect-ratio: 16 / 9;
+      align-items: center;
+      justify-content: center;
+      background: url("assets/images/bc.png") center center / cover no-repeat;
+    }
+    .hero::before { display: none; }
+    .hero::after { background: rgba(255, 255, 255, .36); }
+    .hero-inner {
+      width: 100%;
+      padding: 90px 32px 120px;
+    }
+    .hero-content {
+      width: min(900px, 100%);
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-tags { justify-content: center; }
+    .hero-scroll {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        height: auto;
+        min-height: 650px;
+        aspect-ratio: auto;
+        align-items: center;
+      }
+      .hero-inner { padding: 72px 20px 94px; }
+      .hero-content { width: 100%; }
+    }
+
+    @media (max-width: 560px) {
+      .hero { min-height: 620px; }
+      .hero-inner { padding: 64px 18px 84px; }
     }
   </style>
 </head>
@@ -1051,7 +1139,7 @@
         <div class="final-grid">
           <div class="final-copy">
             <span class="en">Start your next career</span>
-            <h2 class="display">体力も、自分の時間も、<br>削られ続ける前に。<br><strong class="sharp-serif">一度だけ話しませんか。</strong></h2>
+            <h2 class="display"><span>体力も、</span><span>自分の時間も、</span><span>削られ続ける前に。</span><strong class="sharp-serif">一度だけ話しませんか。</strong></h2>
             <p>転職を決めていなくても構いません。今の経験で選べる求人と、年収・休日の可能性を一緒に整理します。</p>
             <div class="final-checks"><span>登録は約60秒・完全無料</span><span>平日夜・土曜の面談OK</span><span>ご希望以外のしつこい連絡なし</span></div>
           </div>
@@ -1092,7 +1180,12 @@
         var number = document.createElement("span");
         var unit = document.createElement("small");
         label.textContent = "年収";
-        number.textContent = match[1];
+        var salaryParts = match[1].split("〜");
+        var range = document.createElement("i");
+        number.append(document.createTextNode(salaryParts[0]));
+        range.className = "salary-range";
+        range.textContent = "〜";
+        number.append(range, document.createTextNode(salaryParts[1]));
         unit.textContent = "万円";
         salary.append(label, number, unit);
       });
