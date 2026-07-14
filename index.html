@@ -1,0 +1,1289 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="整備士・製造・施工管理など、現場経験を活かした大手メーカー転職を支援するGive Careerの現場職向けLPです。">
+  <title>現場経験を、大手メーカーのキャリアへ。｜Give Career</title>
+  <style>
+    :root {
+      --navy: #102b52;
+      --navy-deep: #071c36;
+      --blue: #1769b0;
+      --sky: #1ea1e4;
+      --purple: #5634b5;
+      --orange: #ff4f3d;
+      --orange-dark: #e63f2f;
+      --gold: #efbd49;
+      --ink: #12243b;
+      --muted: #27313d;
+      --line: #dfe5ec;
+      --mist: #f3f6f9;
+      --cream: #fffaf3;
+      --white: #fff;
+      --sidebar: 360px;
+      --radius: 20px;
+      --shadow: 0 18px 44px rgba(16, 43, 82, .12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #eee9f2;
+      font-family: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      font-feature-settings: "palt";
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    button, input, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; text-decoration: none; }
+
+    .display {
+      font-family: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      font-weight: 700;
+      letter-spacing: -.045em;
+    }
+    .en {
+      font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .serif {
+      font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+    }
+    .sharp-serif {
+      font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-weight: 700;
+      letter-spacing: .015em;
+      font-feature-settings: "palt";
+    }
+
+    .scroll-highlight {
+      padding: 0 .06em;
+      background-image: linear-gradient(90deg, rgba(255, 218, 82, .94), rgba(255, 151, 112, .72));
+      background-repeat: no-repeat;
+      background-position: left bottom .02em;
+      background-size: 0 .2em;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      transition: background-size .95s cubic-bezier(.22, .74, .22, 1);
+    }
+    .scroll-highlight.is-visible { background-size: 100% .2em; }
+    .scroll-highlight--soft {
+      background-image: linear-gradient(90deg, rgba(198, 176, 255, .75), rgba(255, 205, 225, .72));
+    }
+
+    .desktop-side {
+      position: fixed;
+      inset: 0 auto 0 0;
+      z-index: 50;
+      width: var(--sidebar);
+      padding: 34px 28px 28px;
+      overflow: auto;
+      background: linear-gradient(145deg, #ffffff 0%, #f2f8fd 100%);
+      border-right: 1px solid #d9e0e8;
+      box-shadow: 12px 0 34px rgba(7, 28, 54, .08);
+    }
+    .side-logo {
+      width: 185px;
+      height: auto;
+      margin: 0 auto 28px;
+    }
+    .side-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+      color: var(--blue);
+      font-size: 12px;
+    }
+    .side-label::before { content: ""; width: 32px; height: 2px; background: var(--sky); }
+    .side-title {
+      margin: 0 0 14px;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.38;
+    }
+    .side-title strong { color: var(--blue); }
+    .side-copy {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+    .side-proof {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+    .side-proof span {
+      padding: 9px 6px;
+      color: var(--navy);
+      background: #eef6fc;
+      border: 1px solid #d9ebf7;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .side-question {
+      margin: 0 0 10px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .side-actions { display: grid; gap: 10px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 54px;
+      padding: 14px 20px;
+      border: 0;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      color: #fff;
+      background: var(--orange);
+      box-shadow: 0 9px 20px rgba(255, 79, 61, .3);
+    }
+    .btn-primary:hover { background: var(--orange-dark); }
+    .btn-invert-hover { border: 2px solid var(--orange); }
+    .btn-invert-hover:hover {
+      color: var(--orange);
+      background: #fff;
+      border-color: var(--orange);
+      box-shadow: 0 9px 20px rgba(16, 43, 82, .12);
+    }
+    .btn-secondary {
+      color: var(--blue);
+      background: linear-gradient(145deg, #ffffff 0%, #f2f8fd 100%);
+      border: 2px solid var(--blue);
+    }
+    .side-note {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 16px 0 0;
+      color: #788394;
+      font-size: 10px;
+    }
+
+    .mobile-header { display: none; }
+    .page { margin-left: var(--sidebar); background: #fff; }
+    .main { overflow: hidden; }
+
+    .hero {
+      position: relative;
+      min-height: 760px;
+      display: flex;
+      align-items: center;
+      isolation: isolate;
+      background: var(--navy-deep);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: url("assets/images/hero-engineer.png") 58% center / cover no-repeat;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(4, 24, 49, .98) 0%, rgba(8, 37, 72, .92) 38%, rgba(9, 39, 75, .36) 68%, rgba(5, 28, 56, .04) 100%),
+        linear-gradient(180deg, rgba(6, 28, 56, .08), rgba(6, 28, 56, .5));
+    }
+    .hero-inner {
+      width: min(1160px, 100%);
+      margin: 0 auto;
+      padding: 84px clamp(38px, 6vw, 92px) 112px;
+    }
+    .hero-content { width: min(610px, 58%); color: #fff; }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding: 8px 14px;
+      background: rgba(30, 161, 228, .14);
+      border: 1px solid rgba(114, 211, 255, .62);
+      border-radius: 4px;
+      color: #d9f4ff;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .hero-kicker::before { content: ""; width: 8px; height: 8px; background: var(--orange); transform: rotate(45deg); }
+    .hero h1 {
+      margin: 0 0 22px;
+      font-size: clamp(42px, 5.2vw, 74px);
+      font-weight: 900;
+      line-height: 1.19;
+      text-shadow: 0 4px 18px rgba(0, 0, 0, .2);
+    }
+    .hero h1 em { color: #65c9f4; font-style: normal; }
+    .hero-lead {
+      margin: 0 0 25px;
+      color: #e4edf7;
+      font-size: clamp(15px, 1.5vw, 19px);
+      font-weight: 400;
+      line-height: 2;
+    }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .hero-tags span {
+      padding: 8px 12px;
+      color: #fff;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+    }
+    .hero-scroll {
+      position: absolute;
+      left: clamp(38px, 6vw, 92px);
+      bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,.68);
+      font-size: 10px;
+    }
+    .hero-scroll::after { content: ""; width: 58px; height: 1px; background: rgba(255,255,255,.55); }
+
+    .trust-strip {
+      position: relative;
+      z-index: 4;
+      width: min(980px, calc(100% - 60px));
+      margin: -54px auto 0;
+      padding: 22px 28px;
+      background: linear-gradient(145deg, #ffffff 0%, #f2f8fd 100%);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat { padding: 7px 18px; text-align: center; border-right: 1px solid var(--line); }
+    .stat:last-child { border-right: 0; }
+    .stat-label { display: block; margin-bottom: 6px; color: var(--muted); font-size: 11px; font-weight: 600; }
+    .stat-value { color: var(--blue); font-size: clamp(28px, 3.4vw, 42px); font-weight: 800; line-height: 1; }
+    .stat-value small { font-size: 13px; letter-spacing: 0; }
+    .stat-note { display: block; margin-top: 6px; color: #9aa3ae; font-size: 9px; }
+
+    .section { padding: 104px clamp(28px, 5vw, 76px); }
+    .section-inner { width: min(980px, 100%); margin: 0 auto; }
+    .section-head { margin-bottom: 46px; text-align: center; }
+    .section-no { display: block; margin-bottom: 10px; color: var(--sky); font-size: 12px; }
+    .section-title {
+      margin: 0;
+      color: var(--navy);
+      font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: clamp(28px, 3.8vw, 45px);
+      font-weight: 600;
+      letter-spacing: .025em;
+      line-height: 1.55;
+    }
+    .section-title .accent { color: var(--blue); font-weight: 700; }
+    .section-sub { margin: 14px auto 0; max-width: 660px; color: var(--muted); font-size: 14px; line-height: 1.9; }
+    .section-rule { width: 44px; height: 3px; margin: 20px auto 0; background: var(--orange); }
+
+    .pains-section {
+      padding-top: 112px;
+      background:
+        radial-gradient(circle at 12% 4%, rgba(39, 125, 190, .16), transparent 30%),
+        linear-gradient(180deg, #dcebf6 0%, #edf5fa 52%, #f5f9fc 100%);
+    }
+    .pains-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .pain {
+      position: relative;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 22px;
+      background: #fff;
+      border: 1px solid #e4e9ef;
+      border-radius: 14px;
+      box-shadow: 0 8px 25px rgba(16, 43, 82, .05);
+    }
+    .pain-icon {
+      flex: 0 0 38px;
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--navy);
+      border-radius: 50%;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .pain p { margin: 0 0 8px; font-size: 14px; font-weight: 400; line-height: 1.85; }
+    .pain small { color: #27313d; }
+    .pain-answer {
+      margin: 34px 0 0;
+      color: var(--navy);
+      font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: clamp(21px, 2.5vw, 28px);
+      font-weight: 600;
+      letter-spacing: .025em;
+      line-height: 1.65;
+      text-align: center;
+    }
+    .pain-answer strong {
+      display: inline-block;
+      margin-top: .08em;
+      color: var(--orange);
+      font-size: clamp(30px, 4.2vw, 49px);
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .reasons {
+      background:
+        radial-gradient(circle at 88% 16%, rgba(38, 150, 215, .11), transparent 28%),
+        linear-gradient(180deg, #f5f9fc 0%, #fbfdff 48%, #f0f8fd 100%);
+    }
+    .reason-list { display: grid; gap: 28px; }
+    .reason {
+      display: grid;
+      grid-template-columns: 42% 1fr;
+      min-height: 280px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .reason:nth-child(even) { grid-template-columns: 1fr 42%; }
+    .reason:nth-child(even) .reason-visual { order: 2; }
+    .reason-visual {
+      position: relative;
+      min-height: 280px;
+      background-size: cover;
+      background-position: center;
+    }
+    .reason-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(7,28,54,.05), rgba(7,28,54,.35)); }
+    .reason-1 { background-image: url("assets/images/04_image01.webp"); }
+    .reason-2 { background-image: url("assets/images/03_bg.webp"); }
+    .reason-3 { background-image: url("assets/images/04_image03.webp"); }
+    .reason-index {
+      position: absolute;
+      top: 18px;
+      left: 20px;
+      z-index: 2;
+      color: #fff;
+      font-size: 66px;
+      line-height: 1;
+      text-shadow: 0 3px 18px rgba(0,0,0,.28);
+    }
+    .reason-body { display: flex; flex-direction: column; justify-content: center; padding: 38px; }
+    .reason-eyebrow { margin-bottom: 10px; color: var(--sky); font-size: 11px; }
+    .reason h3 { margin: 0 0 14px; color: var(--navy); font-size: clamp(20px, 2.5vw, 29px); line-height: 1.55; }
+    .reason p { margin: 0; color: #202733; font-size: 14px; line-height: 2; }
+
+    .jobs-section {
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 82% 8%, rgba(91, 65, 180, .15), transparent 34%),
+        radial-gradient(circle at 12% 80%, rgba(30, 161, 228, .12), transparent 30%),
+        linear-gradient(180deg, #edf7fd 0%, #f2f4fc 56%, #f5f2fb 100%);
+    }
+    .jobs-section .section-title { color: var(--navy); }
+    .jobs-section .section-sub { color: var(--muted); }
+    .job-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 28px; }
+    .job-tab {
+      padding: 11px 22px;
+      color: var(--navy);
+      background: rgba(255,255,255,.55);
+      border: 1px solid #b6c9da;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .job-tab.is-active { color: #fff; background: var(--blue); border-color: var(--blue); box-shadow: 0 7px 16px rgba(23,105,176,.2); }
+    .job-panel { display: none; }
+    .job-panel.is-active { display: block; }
+    .job-card {
+      overflow: hidden;
+      color: var(--ink);
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+    }
+    .job-card-image { height: 190px; object-fit: cover; width: 100%; }
+    .job-card-body { padding: 24px; }
+    .job-type { color: var(--blue); font-size: 10px; }
+    .job-card h3 {
+      margin: 8px 0 10px;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.7;
+      letter-spacing: .01em;
+    }
+    .salary {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      color: var(--orange);
+      font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+    .salary small { font-size: 12px; font-weight: 600; }
+    .salary span {
+      font-family: "DIN Alternate", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+      font-size: 31px;
+      font-weight: 800;
+      letter-spacing: -.025em;
+      line-height: 1;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0; }
+    .tags span { padding: 5px 8px; color: #235a86; background: #eaf5fb; border-radius: 4px; font-size: 10px; font-weight: 600; }
+    .job-card p { margin: 0; color: #202733; font-size: 12px; line-height: 1.8; }
+    .jobs-note { margin: 18px 0 0; color: #27313d; font-size: 10px; text-align: center; }
+
+    .cases-section {
+      background:
+        radial-gradient(circle at 12% 20%, rgba(95, 70, 180, .09), transparent 30%),
+        linear-gradient(180deg, #f5f2fb 0%, #faf6fc 54%, #fff8fb 100%);
+    }
+    .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .case-card {
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid #eadfce;
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(76, 57, 30, .08);
+    }
+    .case-top { padding: 22px 20px 16px; color: #fff; background: var(--navy); }
+    .case-top small { color: #aad7ef; font-weight: 600; }
+    .case-top h3 { margin: 7px 0 0; font-size: 17px; font-weight: 600; line-height: 1.6; }
+    .case-body { padding: 20px; }
+    .career-change { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; }
+    .career-box { padding: 10px; background: var(--mist); border-radius: 9px; font-size: 11px; font-weight: 600; line-height: 1.6; text-align: center; }
+    .career-arrow { color: var(--orange); font-size: 22px; font-weight: 700; }
+    .case-results { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+    .case-result { padding: 12px 8px; background: #eef7fc; border-radius: 8px; text-align: center; }
+    .case-result small { display: block; margin-bottom: 4px; color: var(--muted); font-size: 9px; }
+    .case-result strong { color: var(--blue); font-size: 14px; }
+    .case-quote {
+      margin: 16px 0 0;
+      color: #202733;
+      font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: .035em;
+      line-height: 2;
+    }
+
+    .voices {
+      background:
+        radial-gradient(circle at 90% 22%, rgba(199, 112, 174, .09), transparent 29%),
+        linear-gradient(180deg, #fff8fb 0%, #fdf8fc 50%, #faf4fb 100%);
+    }
+    .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .voice {
+      padding: 26px 22px;
+      background: var(--mist);
+      border-top: 4px solid var(--sky);
+      border-radius: 0 0 14px 14px;
+    }
+    .voice-stars { color: var(--gold); letter-spacing: 2px; }
+    .voice p { margin: 15px 0; color: #202733; font-size: 13px; font-weight: 400; line-height: 1.9; }
+    .voice small { color: var(--muted); font-weight: 600; }
+
+    .auto-carousel {
+      position: relative;
+      --per-view: 1;
+    }
+    .carousel-viewport {
+      width: 100%;
+      overflow: hidden;
+      padding: 4px 0 18px;
+    }
+    .carousel-track {
+      display: flex !important;
+      align-items: stretch;
+      width: 100%;
+      transition: transform .55s cubic-bezier(.22, .75, .2, 1);
+      will-change: transform;
+    }
+    .carousel-clone { pointer-events: none; }
+    .carousel-track > * {
+      flex: 0 0 calc((100% / var(--per-view)) - 16px);
+      min-width: 0;
+      margin: 0 8px;
+      box-sizing: border-box;
+      opacity: .58;
+      transform: scale(.94);
+      transition: opacity .45s ease, transform .55s cubic-bezier(.22, .75, .2, 1);
+    }
+    .carousel-track > .is-carousel-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .carousel-track .job-card,
+    .carousel-track .case-card,
+    .carousel-track .voice { height: 100%; }
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .carousel-button {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      color: var(--blue);
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(23,105,176,.35);
+      border-radius: 50%;
+      box-shadow: 0 6px 16px rgba(16,43,82,.1);
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      transition: color .2s ease, background .2s ease, transform .2s ease;
+    }
+    .carousel-button:hover { color: #fff; background: var(--blue); transform: translateY(-2px); }
+    .carousel-dots { display: flex; align-items: center; justify-content: center; gap: 7px; min-width: 76px; }
+    .carousel-dot {
+      width: 7px;
+      height: 7px;
+      padding: 0;
+      background: #aebbc9;
+      border: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: width .25s ease, background .25s ease;
+    }
+    .carousel-dot[aria-current="true"] { width: 22px; background: var(--blue); border-radius: 999px; }
+    .jobs-section .carousel-button { background: #fff; }
+    .cases-section .carousel-dot[aria-current="true"] { background: var(--purple); }
+    .voices .carousel-dot[aria-current="true"] { background: #a35599; }
+
+    .flow-section {
+      background:
+        radial-gradient(circle at 15% 85%, rgba(140, 91, 185, .1), transparent 31%),
+        linear-gradient(180deg, #faf4fb 0%, #f5edf9 100%);
+    }
+    .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .flow-step { position: relative; padding: 25px 20px 24px; color: #fff; background: var(--blue); min-height: 180px; }
+    .flow-step:nth-child(2) { background: #155b9a; }
+    .flow-step:nth-child(3) { background: #134f86; }
+    .flow-step:nth-child(4) { background: var(--navy); }
+    .flow-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 50%; right: -15px; z-index: 2;
+      transform: translateY(-50%);
+      border-top: 18px solid transparent;
+      border-bottom: 18px solid transparent;
+      border-left: 15px solid currentColor;
+      color: inherit;
+    }
+    .flow-step:nth-child(1)::after { border-left-color: var(--blue); }
+    .flow-step:nth-child(2)::after { border-left-color: #155b9a; }
+    .flow-step:nth-child(3)::after { border-left-color: #134f86; }
+    .flow-no { display: block; margin-bottom: 24px; color: rgba(255,255,255,.25); font-size: 54px; line-height: .8; }
+    .flow-step h3 { margin: 0 0 8px; font-size: 17px; font-weight: 600; }
+    .flow-step p { margin: 0; color: rgba(255,255,255,.78); font-size: 11px; line-height: 1.8; }
+
+    .choice-cta {
+      position: relative;
+      padding: 74px clamp(28px, 5vw, 76px);
+      color: #fff;
+      background: linear-gradient(120deg, #426f9b 0%, #7251a5 52%, #a76ca8 100%);
+      overflow: hidden;
+    }
+    .choice-cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .12;
+      background: repeating-linear-gradient(135deg, transparent 0 18px, #fff 18px 19px);
+    }
+    .choice-inner { position: relative; width: min(820px, 100%); margin: auto; text-align: center; }
+    .choice-inner h2 { margin: 0 0 12px; font-size: clamp(25px, 3.5vw, 38px); font-weight: 600; letter-spacing: .025em; line-height: 1.55; }
+    .choice-inner p { margin: 0 0 28px; color: #dce8f6; font-size: 14px; line-height: 1.9; }
+    .choice-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .choice-buttons .btn { min-height: 64px; }
+    .choice-buttons .btn-secondary { border-color: #fff; }
+
+    .faq-section {
+      background:
+        radial-gradient(circle at 88% 8%, rgba(182, 112, 175, .1), transparent 28%),
+        linear-gradient(180deg, #f5edf9 0%, #faf4fb 52%, #f4eafa 100%);
+    }
+    .faq-list { width: min(800px, 100%); margin: auto; border-top: 1px solid var(--line); }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-q {
+      width: 100%;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 22px 8px;
+      color: var(--navy);
+      background: transparent;
+      border: 0;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+    }
+    .faq-q b { color: var(--blue); font-family: Georgia, serif; font-size: 23px; }
+    .faq-icon { color: var(--blue); font-size: 22px; transition: transform .25s ease; }
+    .faq-item.is-open .faq-icon { transform: rotate(45deg); }
+    .faq-a { display: none; grid-template-columns: auto 1fr; gap: 14px; padding: 0 8px 24px; color: #202733; font-size: 13px; line-height: 1.9; }
+    .faq-item.is-open .faq-a { display: grid; }
+    .faq-a b { color: var(--orange); font-family: Georgia, serif; font-size: 23px; }
+    .faq-a p { margin: 2px 0 0; }
+
+    .final-section {
+      padding: 100px clamp(28px, 5vw, 76px);
+      background:
+        radial-gradient(circle at 12% 15%, rgba(255,255,255,.72), transparent 32%),
+        radial-gradient(circle at 88% 82%, rgba(190, 122, 177, .16), transparent 34%),
+        linear-gradient(180deg, #f4eafa 0%, #efe2f5 50%, #e8d9f0 100%);
+    }
+    .final-grid { width: min(900px, 100%); margin: auto; display: grid; grid-template-columns: .9fr 1.1fr; gap: 42px; align-items: center; }
+    .final-copy .en { color: var(--sky); font-size: 12px; }
+    .final-copy h2 {
+      margin: 14px 0;
+      color: var(--navy);
+      font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: clamp(29px, 3.8vw, 44px);
+      font-weight: 600;
+      letter-spacing: .025em;
+      line-height: 1.55;
+    }
+    .final-copy h2 strong { color: var(--blue); }
+    .final-copy p { color: var(--muted); font-size: 14px; line-height: 1.9; }
+    .final-checks { display: grid; gap: 8px; margin-top: 20px; color: var(--navy); font-size: 12px; font-weight: 600; }
+    .final-checks span::before { content: "✓"; margin-right: 8px; color: var(--orange); }
+    .form-card { padding: 28px; background: #fff; border-radius: 18px; box-shadow: var(--shadow); }
+    .form-card h3 { margin: 0 0 20px; color: var(--navy); font-size: 19px; font-weight: 600; text-align: center; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .field { display: grid; gap: 6px; margin-bottom: 13px; }
+    .field label { color: #4f5b6b; font-size: 11px; font-weight: 600; }
+    .field input, .field select {
+      width: 100%;
+      min-height: 46px;
+      padding: 10px 12px;
+      color: var(--ink);
+      background: #f7f9fb;
+      border: 1px solid #d9e0e8;
+      border-radius: 7px;
+      outline: none;
+    }
+    .field input:focus, .field select:focus { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(30,161,228,.12); }
+    .form-card .btn { width: 100%; margin-top: 4px; }
+    .form-note { margin: 12px 0 0; color: #929ba7; font-size: 9px; line-height: 1.6; text-align: center; }
+    .thanks { display: none; padding: 40px 12px; text-align: center; }
+    .thanks strong { display: block; margin-bottom: 10px; color: var(--blue); font-size: 22px; }
+    .thanks p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+
+    footer { padding: 30px; color: #c4b7d1; background: #2e2142; font-size: 10px; text-align: center; }
+    footer img { width: 150px; margin: 0 auto 13px; padding: 5px 8px; background: #fff; border-radius: 4px; }
+
+    .mobile-sticky { display: none; }
+
+    @media (max-width: 1160px) and (min-width: 961px) {
+      :root { --sidebar: 320px; }
+      .desktop-side { padding-right: 23px; padding-left: 23px; }
+      .side-title { font-size: 26px; }
+      .hero-content { width: 62%; }
+      .section { padding-right: 42px; padding-left: 42px; }
+    }
+
+    @media (max-width: 960px) {
+      body { background: #fff; padding-bottom: 76px; }
+      .desktop-side { display: none; }
+      .mobile-header {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 64px;
+        padding: 10px 18px;
+        background: rgba(255,255,255,.96);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(10px);
+      }
+      .mobile-header img { width: 150px; }
+      .mobile-header .btn { min-height: 40px; padding: 9px 15px; font-size: 12px; }
+      .page { margin-left: 0; }
+      .hero { min-height: 680px; align-items: flex-end; }
+      .hero::before { background-position: 62% center; }
+      .hero::after {
+        background: linear-gradient(180deg, rgba(6,28,56,.06) 12%, rgba(6,28,56,.48) 43%, rgba(5,25,50,.98) 78%, rgba(5,25,50,1) 100%);
+      }
+      .hero-inner { padding: 330px 24px 66px; }
+      .hero-content { width: 100%; }
+      .hero h1 { font-size: clamp(38px, 10vw, 56px); }
+      .hero-lead { font-size: 14px; line-height: 1.85; }
+      .hero-scroll { display: none; }
+      .trust-strip { width: calc(100% - 32px); margin-top: -28px; padding: 18px 10px; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .stat { padding: 14px 8px; }
+      .stat:nth-child(2) { border-right: 0; }
+      .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .section { padding: 78px 20px; }
+      .section-head { margin-bottom: 34px; }
+      .pains-grid { grid-template-columns: 1fr; }
+      .reason, .reason:nth-child(even) { grid-template-columns: 1fr; }
+      .reason:nth-child(even) .reason-visual { order: 0; }
+      .reason-visual { min-height: 210px; }
+      .reason-body { padding: 28px 24px; }
+      .job-panel { display: none; }
+      .job-panel.is-active { display: block; }
+      .case-grid, .voice-grid { padding: 0; }
+      .case-card, .voice { scroll-snap-align: unset; }
+      .carousel-track > * { flex-basis: calc(86% - 16px); margin-right: 8px; margin-left: 8px; }
+      .carousel-controls { margin-top: 8px; }
+      .flow { grid-template-columns: 1fr; gap: 8px; }
+      .flow-step { min-height: 0; padding: 22px 22px 24px 92px; border-radius: 8px; }
+      .flow-step:not(:last-child)::after { display: none; }
+      .flow-no { position: absolute; top: 25px; left: 22px; margin: 0; }
+      .choice-buttons { grid-template-columns: 1fr; }
+      .final-grid { grid-template-columns: 1fr; gap: 28px; }
+      .final-copy { text-align: center; }
+      .final-checks { justify-content: center; }
+      .mobile-sticky {
+        position: fixed;
+        inset: auto 0 0;
+        z-index: 80;
+        display: grid;
+        grid-template-columns: .72fr 1.28fr;
+        gap: 8px;
+        padding: 9px 12px calc(9px + env(safe-area-inset-bottom));
+        background: rgba(255,255,255,.97);
+        border-top: 1px solid var(--line);
+        box-shadow: 0 -8px 24px rgba(16,43,82,.12);
+      }
+      .mobile-sticky .btn { min-height: 50px; padding: 10px 8px; font-size: 12px; }
+      footer { padding-bottom: 34px; }
+    }
+
+    @media (max-width: 560px) {
+      .mobile-header img { width: 132px; }
+      .mobile-header .btn { padding-right: 12px; padding-left: 12px; font-size: 11px; }
+      .hero { min-height: 650px; }
+      .hero-inner { padding-top: 310px; }
+      .hero h1 { font-size: 38px; }
+      .hero-kicker { font-size: 11px; }
+      .hero-tags span { font-size: 10px; }
+      .section-title { font-size: 28px; }
+      .pain { padding: 18px; }
+      .job-tabs { gap: 5px; }
+      .job-tab { flex: 1; padding: 10px 6px; font-size: 11px; }
+      .case-card, .voice { flex-basis: 89%; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .form-card { padding: 22px 18px; }
+      .final-section { padding: 76px 18px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .scroll-highlight {
+        background-size: 100% .2em;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <aside class="desktop-side" aria-label="固定相談メニュー">
+    <img class="side-logo" src="assets/images/givecareer-logo.jpg" alt="Give Career">
+    <h2 class="side-title display">その技術、<br><strong>大手メーカー</strong>で<br>活かそう。</h2>
+    <p class="side-copy">整備士・製造・施工管理など、現場で培った経験をメーカーが評価する言葉に変えて届けます。</p>
+    <div class="side-proof">
+      <span>完全無料</span><span>全国対応</span>
+      <span>平日夜・土曜OK</span><span>情報収集だけOK</span>
+    </div>
+    <p class="side-question">今のお気持ちに近いのは？</p>
+    <div class="side-actions">
+      <button class="btn btn-primary btn-invert-hover js-scroll-form">転職したいので相談する <span>›</span></button>
+      <button class="btn btn-secondary js-scroll-form">まずは情報収集したい</button>
+    </div>
+    <p class="side-note"><span>相談60秒</span><span>しつこい連絡なし</span></p>
+  </aside>
+
+  <header class="mobile-header">
+    <img src="assets/images/givecareer-logo.jpg" alt="Give Career">
+    <button class="btn btn-primary js-scroll-form">無料で相談</button>
+  </header>
+
+  <div class="page">
+    <main class="main">
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-content">
+            <div class="hero-kicker">現場経験を活かす、メーカー転職支援</div>
+            <h1 class="display">現場で磨いた技術を、<br><em>次のキャリア</em>へ。</h1>
+            <p class="hero-lead">施工管理・整備士・製造職から、大手・優良メーカーへ。<br>年収を守りながら、土日休み・日勤・出張なしを目指せます。</p>
+            <div class="hero-tags">
+              <span>大手メーカー求人</span>
+              <span>年収アップ事例あり</span>
+              <span>現場職に強い担当者</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-scroll en">Scroll to discover</div>
+      </section>
+
+      <div class="trust-strip" aria-label="Give Careerの実績">
+        <div class="stats">
+          <div class="stat"><span class="stat-label">現場職の登録者</span><strong class="stat-value display">1,400<small>名+</small></strong><span class="stat-note">2026年6月時点</span></div>
+          <div class="stat"><span class="stat-label">転職決定数</span><strong class="stat-value display">656<small>件</small></strong><span class="stat-note">累計実績</span></div>
+          <div class="stat"><span class="stat-label">年収維持・アップ率</span><strong class="stat-value display">87<small>%</small></strong><span class="stat-note">決定者のうち</span></div>
+          <div class="stat"><span class="stat-label">メーカー転職支援</span><strong class="stat-value display">No.1</strong><span class="stat-note">書類通過率</span></div>
+        </div>
+      </div>
+
+      <section class="section pains-section">
+        <div class="section-inner">
+          <div class="section-head">
+            <span class="section-no en">01 / Your concerns</span>
+            <h2 class="section-title display">その悩み、<br><span class="accent scroll-highlight">あきらめる理由</span>にしていませんか？</h2>
+            <div class="section-rule"></div>
+          </div>
+          <div class="pains-grid">
+            <article class="pain"><span class="pain-icon">“</span><div><p>大手メーカーに行きたい。でも現場上がりでは書類で落ちそう。</p><small>29歳・製造オペレーター</small></div></article>
+            <article class="pain"><span class="pain-icon">“</span><div><p>夜勤・交替勤務がきつい。年収は下げずに日勤へ変えたい。</p><small>32歳・製造職</small></div></article>
+            <article class="pain"><span class="pain-icon">“</span><div><p>長期出張ばかりで、家に帰れるのは月に数回だけ。</p><small>34歳・施工管理</small></div></article>
+            <article class="pain"><span class="pain-icon">“</span><div><p>土日休みで年収も維持したい。わがままだと思って言えない。</p><small>31歳・自動車整備士</small></div></article>
+          </div>
+          <p class="pain-answer">GiveCareerなら、<br><strong><span class="scroll-highlight sharp-serif">働き方も年収も、変えられます。</span></strong></p>
+        </div>
+      </section>
+
+      <section class="section reasons">
+        <div class="section-inner">
+          <div class="section-head">
+            <span class="section-no en">02 / Why Give Career</span>
+            <h2 class="section-title display">現場職の転職に、<br><span class="accent scroll-highlight scroll-highlight--soft">Give Careerが強い理由</span></h2>
+            <p class="section-sub">求人の数だけではなく、入社後の働き方まで。現場経験者が本当に知りたい情報を確認してから提案します。</p>
+            <div class="section-rule"></div>
+          </div>
+          <div class="reason-list">
+            <article class="reason">
+              <div class="reason-visual reason-1"><span class="reason-index display">01</span></div>
+              <div class="reason-body"><span class="reason-eyebrow en">Career translation</span><h3 class="sharp-serif">現場で培った経験を、メーカー転職の武器に変える</h3><p>本人には当たり前の経験も、企業にとっては価値ある強みです。技術や実績を丁寧に棚卸しし、企業ごとの採用背景に合わせて、採用担当に響く職務経歴書へ仕上げます。</p></div>
+            </article>
+            <article class="reason">
+              <div class="reason-visual reason-2"><span class="reason-index display">02</span></div>
+              <div class="reason-body"><span class="reason-eyebrow en">Real working conditions</span><h3 class="sharp-serif">残業・出張・休日の「実態」まで確認</h3><p>求人票だけでは分からない残業の実測値、出張の頻度、休日出勤の実際まで企業へ直接ヒアリング。「入ってみたら違った」を防ぎます。</p></div>
+            </article>
+            <article class="reason">
+              <div class="reason-visual reason-3"><span class="reason-index display">03</span></div>
+              <div class="reason-body"><span class="reason-eyebrow en">Conditions first</span><h3 class="sharp-serif">譲れない条件から逆算して求人を提案</h3><p>年収・日勤・土日休み・勤務地。最初に「これだけは譲れない」を整理し、条件に合う求人だけをご提案。無理に応募を勧めることはありません。</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section jobs-section" id="jobs">
+        <div class="section-inner">
+          <div class="section-head">
+            <span class="section-no en">03 / Job examples</span>
+            <h2 class="section-title display">あなたの経験が活きる、<br><span class="scroll-highlight">メーカー求人の一例</span></h2>
+            <p class="section-sub">職種を選ぶと求人例が切り替わります。非公開求人を含め、条件に合わせて個別にご案内します。</p>
+            <div class="section-rule"></div>
+          </div>
+          <div class="job-tabs" role="tablist">
+            <button class="job-tab is-active" data-job-tab="mechanic" role="tab">整備士</button>
+            <button class="job-tab" data-job-tab="manufacturing" role="tab">製造・保全</button>
+            <button class="job-tab" data-job-tab="construction" role="tab">施工管理</button>
+          </div>
+          <div class="job-panel auto-carousel is-active" data-job-panel="mechanic" data-carousel data-desktop-view="2">
+            <div class="carousel-viewport"><div class="carousel-track">
+              <article class="job-card"><img class="job-card-image" src="assets/images/03_bg.webp" alt="機械設備"><div class="job-card-body"><span class="job-type en">Field service engineer</span><h3>大手建設機械メーカー｜フィールドサービス</h3><strong class="salary display">年収 480〜600万円</strong><div class="tags"><span>土日祝休み</span><span>日勤のみ</span><span>資格手当</span></div><p>整備資格と故障診断の経験を評価。ディーラー整備士からの転職実績が豊富です。</p></div></article>
+              <article class="job-card"><img class="job-card-image" src="assets/images/04_image01.webp" alt="自動車工場"><div class="job-card-body"><span class="job-type en">Quality assurance</span><h3>大手自動車メーカー｜完成車の品質保証・検査</h3><strong class="salary display">年収 450〜560万円</strong><div class="tags"><span>土日休み</span><span>日勤のみ</span><span>残業月12h</span></div><p>整備の知識を品質側で活かせる職種。ライン残業に左右されにくい部門です。</p></div></article>
+              <article class="job-card"><img class="job-card-image" src="assets/images/02_bg.webp" alt="自動車開発"><div class="job-card-body"><span class="job-type en">Vehicle testing</span><h3>完成車メーカー｜車両評価・走行試験</h3><strong class="salary display">年収 460〜590万円</strong><div class="tags"><span>開発部門</span><span>年間休日124日</span><span>経験者優遇</span></div><p>整備で培った異音・振動の感覚を、開発車両の評価業務に活かせます。</p></div></article>
+              <article class="job-card"><img class="job-card-image" src="assets/images/04_image03.webp" alt="先進設備"><div class="job-card-body"><span class="job-type en">Technical trainer</span><h3>大手部品メーカー｜サービス技術・研修担当</h3><strong class="salary display">年収 500〜630万円</strong><div class="tags"><span>内勤中心</span><span>土日祝休み</span><span>整備資格歓迎</span></div><p>現場知識をマニュアル作成や技術研修へ。体力負担を減らしながら経験を活かせます。</p></div></article>
+            </div></div>
+            <div class="carousel-controls"><button class="carousel-button carousel-prev" type="button" aria-label="前の求人">‹</button><div class="carousel-dots"></div><button class="carousel-button carousel-next" type="button" aria-label="次の求人">›</button></div>
+          </div>
+          <div class="job-panel auto-carousel" data-job-panel="manufacturing" data-carousel data-desktop-view="2">
+            <div class="carousel-viewport"><div class="carousel-track">
+              <article class="job-card"><img class="job-card-image" src="assets/images/04_image03.webp" alt="先進的な製造設備"><div class="job-card-body"><span class="job-type en">Production engineering</span><h3>大手素材メーカー｜生産技術・工程改善</h3><strong class="salary display">年収 500〜650万円</strong><div class="tags"><span>日勤のみ</span><span>土日休み</span><span>上流工程</span></div><p>オペレーター経験を活かして工程改善へ。夜勤・交替勤務から卒業できます。</p></div></article>
+              <article class="job-card"><img class="job-card-image" src="assets/images/04_image02.webp" alt="電子部品"><div class="job-card-body"><span class="job-type en">Maintenance</span><h3>大手電子部品メーカー｜設備保全・メンテナンス</h3><strong class="salary display">年収 450〜580万円</strong><div class="tags"><span>転勤なし</span><span>年間休日121日</span><span>日勤中心</span></div><p>設備の点検・修理経験を正当に評価。地元勤務の希望にも対応します。</p></div></article>
+              <article class="job-card"><img class="job-card-image" src="assets/images/04_image01.webp" alt="製造ライン"><div class="job-card-body"><span class="job-type en">Quality control</span><h3>大手自動車部品メーカー｜品質管理</h3><strong class="salary display">年収 470〜610万円</strong><div class="tags"><span>日勤のみ</span><span>賞与5か月</span><span>改善経験歓迎</span></div><p>工程内検査や不良対策の経験を、メーカーの品質改善活動へつなげます。</p></div></article>
+              <article class="job-card"><img class="job-card-image" src="assets/images/03_bg.webp" alt="機械部品"><div class="job-card-body"><span class="job-type en">Manufacturing leader</span><h3>大手機械メーカー｜製造リーダー候補</h3><strong class="salary display">年収 490〜620万円</strong><div class="tags"><span>正社員</span><span>班長経験歓迎</span><span>年間休日122日</span></div><p>現場での段取り・後輩指導を評価。マネジメントへキャリアを広げられます。</p></div></article>
+            </div></div>
+            <div class="carousel-controls"><button class="carousel-button carousel-prev" type="button" aria-label="前の求人">‹</button><div class="carousel-dots"></div><button class="carousel-button carousel-next" type="button" aria-label="次の求人">›</button></div>
+          </div>
+          <div class="job-panel auto-carousel" data-job-panel="construction" data-carousel data-desktop-view="2">
+            <div class="carousel-viewport"><div class="carousel-track">
+              <article class="job-card"><img class="job-card-image" src="assets/images/04_image01.webp" alt="メーカー工場"><div class="job-card-body"><span class="job-type en">Facility management</span><h3>大手機械メーカー｜自社工場の設備工事管理</h3><strong class="salary display">年収 500〜650万円</strong><div class="tags"><span>長期出張なし</span><span>土日祝休み</span><span>拠点勤務</span></div><p>現場を転々とする施工管理から、自社工場内の管理へ。毎日家に帰れる働き方です。</p></div></article>
+              <article class="job-card"><img class="job-card-image" src="assets/images/03_bg.webp" alt="工場設備"><div class="job-card-body"><span class="job-type en">Plant engineering</span><h3>プラントメーカー｜施工管理（内勤中心）</h3><strong class="salary display">年収 480〜620万円</strong><div class="tags"><span>日帰り出張中心</span><span>年間休日125日</span><span>残業月20h</span></div><p>施工管理経験を活かしつつ、拠点勤務で生活を安定させたい方に。</p></div></article>
+              <article class="job-card"><img class="job-card-image" src="assets/images/04_image03.webp" alt="スマートファクトリー"><div class="job-card-body"><span class="job-type en">Construction planning</span><h3>大手設備会社｜工事計画・安全品質管理</h3><strong class="salary display">年収 520〜680万円</strong><div class="tags"><span>本社勤務</span><span>現場常駐なし</span><span>経験者採用</span></div><p>現場経験を工事計画と安全品質の仕組みづくりに活かす上流ポジションです。</p></div></article>
+              <article class="job-card"><img class="job-card-image" src="assets/images/01_bgb.webp" alt="設計イメージ"><div class="job-card-body"><span class="job-type en">Engineering support</span><h3>産業機械メーカー｜設計・積算サポート</h3><strong class="salary display">年収 470〜600万円</strong><div class="tags"><span>オフィス中心</span><span>CAD研修</span><span>土日祝休み</span></div><p>施工図や見積の経験を活かし、現場から設計・積算側へキャリアチェンジできます。</p></div></article>
+            </div></div>
+            <div class="carousel-controls"><button class="carousel-button carousel-prev" type="button" aria-label="前の求人">‹</button><div class="carousel-dots"></div><button class="carousel-button carousel-next" type="button" aria-label="次の求人">›</button></div>
+          </div>
+          <p class="jobs-note">※求人内容は一例です。募集状況やご経験によりご紹介可能な求人は異なります。</p>
+        </div>
+      </section>
+
+      <section class="section cases-section">
+        <div class="section-inner">
+          <div class="section-head">
+            <span class="section-no en">04 / Success stories</span>
+            <h2 class="section-title display"><span class="scroll-highlight">年収を守りながら、</span><br><span class="accent">働き方を変えた</span>転職事例</h2>
+            <div class="section-rule"></div>
+          </div>
+          <div class="auto-carousel" data-carousel data-desktop-view="3" aria-label="転職成功事例カルーセル">
+            <div class="carousel-viewport"><div class="case-grid carousel-track">
+              <article class="case-card"><div class="case-top"><small>33歳・施工管理</small><h3>大手機械メーカーへ</h3></div><div class="case-body"><div class="career-change"><div class="career-box">建築<br>施工管理</div><div class="career-arrow">›</div><div class="career-box">自社工場<br>設備管理</div></div><div class="case-results"><div class="case-result"><small>年収</small><strong>510→560万円</strong></div><div class="case-result"><small>働き方</small><strong>出張なし</strong></div></div><p class="case-quote">「現場を転々とする生活が終わり、毎日家に帰れるようになりました。」</p></div></article>
+              <article class="case-card"><div class="case-top"><small>35歳・自動車整備士</small><h3>大手建機メーカーへ</h3></div><div class="case-body"><div class="career-change"><div class="career-box">ディーラー<br>整備士</div><div class="career-arrow">›</div><div class="career-box">フィールド<br>サービス</div></div><div class="case-results"><div class="case-result"><small>年収</small><strong>420→480万円</strong></div><div class="case-result"><small>休日</small><strong>土日祝休み</strong></div></div><p class="case-quote">「資格が給料に反映され、家族と過ごす週末が初めてできました。」</p></div></article>
+              <article class="case-card"><div class="case-top"><small>31歳・製造職</small><h3>大手素材メーカーへ</h3></div><div class="case-body"><div class="career-change"><div class="career-box">製造<br>オペレーター</div><div class="career-arrow">›</div><div class="career-box">生産技術<br>工程改善</div></div><div class="case-results"><div class="case-result"><small>年収</small><strong>460→520万円</strong></div><div class="case-result"><small>勤務</small><strong>日勤のみ</strong></div></div><p class="case-quote">「夜勤がなくなって体が楽に。大手は無理だと思っていました。」</p></div></article>
+              <article class="case-card"><div class="case-top"><small>28歳・自動車整備士</small><h3>完成車メーカーへ</h3></div><div class="case-body"><div class="career-change"><div class="career-box">民間工場<br>整備士</div><div class="career-arrow">›</div><div class="career-box">車両評価<br>テスト</div></div><div class="case-results"><div class="case-result"><small>年収</small><strong>390→450万円</strong></div><div class="case-result"><small>休日</small><strong>年休124日</strong></div></div><p class="case-quote">「整備の感覚が開発で評価されるとは思わず、仕事の面白さも増えました。」</p></div></article>
+              <article class="case-card"><div class="case-top"><small>36歳・設備保全</small><h3>大手食品メーカーへ</h3></div><div class="case-body"><div class="career-change"><div class="career-box">交替勤務<br>設備保全</div><div class="career-arrow">›</div><div class="career-box">予防保全<br>リーダー</div></div><div class="case-results"><div class="case-result"><small>年収</small><strong>470→530万円</strong></div><div class="case-result"><small>勤務</small><strong>日勤中心</strong></div></div><p class="case-quote">「生活リズムが整い、子どもの行事にも参加できるようになりました。」</p></div></article>
+              <article class="case-card"><div class="case-top"><small>30歳・施工管理</small><h3>大手設備メーカーへ</h3></div><div class="case-body"><div class="career-change"><div class="career-box">サブコン<br>施工管理</div><div class="career-arrow">›</div><div class="career-box">工事計画<br>安全管理</div></div><div class="case-results"><div class="case-result"><small>年収</small><strong>480→520万円</strong></div><div class="case-result"><small>勤務地</small><strong>転勤なし</strong></div></div><p class="case-quote">「現場経験を活かしながら、拠点勤務で先の予定を立てられるようになりました。」</p></div></article>
+            </div></div>
+            <div class="carousel-controls"><button class="carousel-button carousel-prev" type="button" aria-label="前の転職事例">‹</button><div class="carousel-dots"></div><button class="carousel-button carousel-next" type="button" aria-label="次の転職事例">›</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section voices">
+        <div class="section-inner">
+          <div class="section-head">
+            <span class="section-no en">05 / Voices</span>
+            <h2 class="section-title sharp-serif">利用者の声</h2>
+            <div class="section-rule"></div>
+          </div>
+          <div class="auto-carousel" data-carousel data-desktop-view="3" aria-label="利用者の声カルーセル">
+            <div class="carousel-viewport"><div class="voice-grid carousel-track">
+              <article class="voice"><div class="voice-stars">★★★★★</div><p><span class="scroll-highlight">転職を急かされなかった</span>のが一番良かった。半年悩みましたが、最後まで付き合ってくれました。</p><small>30代・製造職</small></article>
+              <article class="voice"><div class="voice-stars">★★★★★</div><p>面談が平日の夜でもOKだったので、<span class="scroll-highlight">会社に知られずに進められました。</span></p><small>20代・自動車整備士</small></article>
+              <article class="voice"><div class="voice-stars">★★★★★</div><p>「その会社、<span class="scroll-highlight">出張の実態はこうです</span>」と教えてくれるエージェントは初めてでした。</p><small>30代・施工管理</small></article>
+              <article class="voice"><div class="voice-stars">★★★★★</div><p><span class="scroll-highlight">自分では応募しなかった大手</span>を提案してもらい、書類の見せ方まで一緒に考えてくれました。</p><small>30代・設備保全</small></article>
+              <article class="voice"><div class="voice-stars">★★★★★</div><p>年収だけでなく、<span class="scroll-highlight">夜勤をなくしたい</span>という希望を最後まで優先してくれました。</p><small>30代・製造オペレーター</small></article>
+              <article class="voice"><div class="voice-stars">★★★★★</div><p>家族との時間を増やしたいと相談したら、<span class="scroll-highlight">出張頻度まで確認した求人だけ</span>を紹介してくれました。</p><small>30代・施工管理</small></article>
+            </div></div>
+            <div class="carousel-controls"><button class="carousel-button carousel-prev" type="button" aria-label="前の利用者の声">‹</button><div class="carousel-dots"></div><button class="carousel-button carousel-next" type="button" aria-label="次の利用者の声">›</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section flow-section">
+        <div class="section-inner">
+          <div class="section-head">
+            <span class="section-no en">06 / Simple steps</span>
+            <h2 class="section-title display">働きながらでも進められる、<br>転職サポートの流れ</h2>
+            <p class="section-sub">登録から内定まで、すべて無料。書類作成や日程調整も担当者がサポートします。</p>
+            <div class="section-rule"></div>
+          </div>
+          <div class="flow">
+            <article class="flow-step"><span class="flow-no display">01</span><h3>無料登録</h3><p>フォーム入力は約60秒。今すぐ転職しなくても大丈夫です。</p></article>
+            <article class="flow-step"><span class="flow-no display">02</span><h3>キャリア面談</h3><p>平日夜・土曜も対応。譲れない条件を一緒に整理します。</p></article>
+            <article class="flow-step"><span class="flow-no display">03</span><h3>求人紹介</h3><p>残業・出張・休日の実態とセットで求人をご案内します。</p></article>
+            <article class="flow-step"><span class="flow-no display">04</span><h3>応募・内定</h3><p>書類、面接、年収交渉まで伴走。納得できる入社を支えます。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="choice-cta">
+        <div class="choice-inner">
+          <h2 class="sharp-serif">まだ迷っていても、大丈夫です。</h2>
+          <p>「転職するかどうか」から一緒に考えるのが私たちの仕事です。今のお気持ちに近い入口を選んでください。</p>
+          <div class="choice-buttons">
+            <button class="btn btn-primary btn-invert-hover js-scroll-form">転職したいので相談する <span>›</span></button>
+            <button class="btn btn-secondary js-scroll-form">まずは情報収集だけしたい</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section faq-section" id="faq">
+        <div class="section-inner">
+          <div class="section-head">
+            <span class="section-no en">07 / FAQ</span>
+            <h2 class="section-title display">よくあるご質問</h2>
+            <div class="section-rule"></div>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item is-open"><button class="faq-q" aria-expanded="true"><b>Q</b><span>本当に無料ですか？あとから費用を請求されませんか？</span><span class="faq-icon">＋</span></button><div class="faq-a"><b>A</b><p>完全無料です。採用企業から紹介料をいただく仕組みのため、求職者の方に費用が発生することはありません。</p></div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false"><b>Q</b><span>まだ転職するか決めていなくても相談できますか？</span><span class="faq-icon">＋</span></button><div class="faq-a"><b>A</b><p>もちろんです。ご相談者の約4割は情報収集からのスタートです。今の職場に残る判断になっても問題ありません。</p></div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false"><b>Q</b><span>働きながらでも転職活動を進められますか？</span><span class="faq-icon">＋</span></button><div class="faq-a"><b>A</b><p>平日夜・土曜、オンラインや電話でも面談できます。書類作成や日程調整も担当者がサポートします。</p></div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false"><b>Q</b><span>地方在住でも利用できますか？</span><span class="faq-icon">＋</span></button><div class="faq-a"><b>A</b><p>全国対応です。「地元を離れたくない」「通勤圏内で」など、勤務地条件を優先したご提案が可能です。</p></div></div>
+            <div class="faq-item"><button class="faq-q" aria-expanded="false"><b>Q</b><span>しつこく電話がかかってきませんか？</span><span class="faq-icon">＋</span></button><div class="faq-a"><b>A</b><p>ご希望の連絡手段と時間帯を伺い、それ以外の連絡はしません。「今回は見送る」と言っていただければ営業も止めます。</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-section" id="consultation-form">
+        <div class="final-grid">
+          <div class="final-copy">
+            <span class="en">Start your next career</span>
+            <h2 class="display">体力と家族を<br>すり減らす前に、<br><strong class="sharp-serif">一度だけ話しませんか。</strong></h2>
+            <p>転職を決めていなくても構いません。今の経験で選べる求人と、年収・休日の可能性を一緒に整理します。</p>
+            <div class="final-checks"><span>登録は約60秒・完全無料</span><span>平日夜・土曜の面談OK</span><span>ご希望以外のしつこい連絡なし</span></div>
+          </div>
+          <div class="form-card">
+            <form id="career-form">
+              <h3>無料キャリア相談</h3>
+              <div class="form-row">
+                <div class="field"><label for="job">現在のご職種</label><select id="job" required><option value="">選択してください</option><option>自動車整備士</option><option>製造・組立・加工</option><option>設備保全</option><option>施工管理</option><option>その他の現場職</option></select></div>
+                <div class="field"><label for="age">年齢</label><select id="age" required><option value="">選択してください</option><option>〜24歳</option><option>25〜29歳</option><option>30〜34歳</option><option>35〜39歳</option><option>40歳〜</option></select></div>
+              </div>
+              <div class="field"><label for="name">お名前</label><input id="name" type="text" placeholder="例）高橋 誠" required></div>
+              <div class="field"><label for="tel">電話番号</label><input id="tel" type="tel" placeholder="例）090-1234-5678" required></div>
+              <button class="btn btn-primary" type="submit">無料で転職相談する <span>›</span></button>
+              <p class="form-note">送信によりプライバシーポリシーに同意したものとみなします。これはローカル確認用フォームです。</p>
+            </form>
+            <div class="thanks" id="thanks"><strong>ご登録ありがとうございます</strong><p>担当アドバイザーより1営業日以内にご連絡します。</p></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer><img src="assets/images/givecareer-logo.jpg" alt="Give Career"><div>© Give Career. All rights reserved.</div></footer>
+  </div>
+
+  <div class="mobile-sticky" aria-label="固定相談ボタン">
+    <button class="btn btn-secondary js-scroll-form">情報収集</button>
+    <button class="btn btn-primary js-scroll-form">無料で相談する <span>›</span></button>
+  </div>
+
+  <script>
+    (function () {
+      document.querySelectorAll(".salary").forEach(function (salary) {
+        var match = salary.textContent.trim().match(/^年収\s*([0-9]+〜[0-9]+)万円$/);
+        if (!match) return;
+        salary.classList.remove("display");
+        salary.textContent = "";
+        var label = document.createElement("small");
+        var number = document.createElement("span");
+        var unit = document.createElement("small");
+        label.textContent = "年収";
+        number.textContent = match[1];
+        unit.textContent = "万円";
+        salary.append(label, number, unit);
+      });
+
+      var highlights = document.querySelectorAll(".scroll-highlight");
+      if ("IntersectionObserver" in window) {
+        var highlightObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            highlightObserver.unobserve(entry.target);
+          });
+        }, { threshold: .42, rootMargin: "0px 0px -8% 0px" });
+        highlights.forEach(function (highlight) { highlightObserver.observe(highlight); });
+      } else {
+        highlights.forEach(function (highlight) { highlight.classList.add("is-visible"); });
+      }
+
+      var formSection = document.getElementById("consultation-form");
+      document.querySelectorAll(".js-scroll-form").forEach(function (button) {
+        button.addEventListener("click", function () {
+          formSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+      var tabs = document.querySelectorAll("[data-job-tab]");
+      var panels = document.querySelectorAll("[data-job-panel]");
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          var target = tab.dataset.jobTab;
+          tabs.forEach(function (item) { item.classList.toggle("is-active", item === tab); });
+          panels.forEach(function (panel) {
+            var isTarget = panel.dataset.jobPanel === target;
+            panel.classList.toggle("is-active", isTarget);
+            if (isTarget && panel._carouselRefresh) panel._carouselRefresh();
+          });
+        });
+      });
+
+      document.querySelectorAll("[data-carousel]").forEach(function (root) {
+        var viewport = root.querySelector(".carousel-viewport");
+        var track = root.querySelector(".carousel-track");
+        var items = Array.from(track.children);
+        var dots = root.querySelector(".carousel-dots");
+        var prev = root.querySelector(".carousel-prev");
+        var next = root.querySelector(".carousel-next");
+        var current = 0;
+        var timer = null;
+        var pointerStart = null;
+        var transitionFrame = null;
+
+        function perView() {
+          return window.matchMedia("(max-width: 960px)").matches ? 1 : Number(root.dataset.desktopView || 1);
+        }
+        function normalize(index) {
+          return ((index % items.length) + items.length) % items.length;
+        }
+        function clonesPerSide() {
+          return Math.min(items.length, Math.max(2, perView()));
+        }
+        function makeClone(item) {
+          var clone = item.cloneNode(true);
+          clone.classList.add("carousel-clone");
+          clone.setAttribute("aria-hidden", "true");
+          clone.querySelectorAll(".scroll-highlight").forEach(function (highlight) {
+            highlight.classList.add("is-visible");
+          });
+          return clone;
+        }
+        function buildLoop() {
+          track.querySelectorAll(".carousel-clone").forEach(function (clone) { clone.remove(); });
+          var cloneCount = clonesPerSide();
+          for (var before = items.length - 1; before >= items.length - cloneCount; before -= 1) {
+            track.insertBefore(makeClone(items[before]), track.firstChild);
+          }
+          for (var after = 0; after < cloneCount; after += 1) {
+            track.appendChild(makeClone(items[after]));
+          }
+        }
+        function renderDots() {
+          dots.innerHTML = "";
+          for (var i = 0; i < items.length; i += 1) {
+            var dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "carousel-dot";
+            dot.dataset.index = String(i);
+            dot.setAttribute("aria-label", (i + 1) + "番目を表示");
+            dots.appendChild(dot);
+          }
+        }
+        function update(animate) {
+          var visible = Math.min(perView(), items.length);
+          var physicalIndex = current + clonesPerSide();
+          var slides = Array.from(track.children);
+          var target = slides[physicalIndex];
+          if (!target) return;
+          root.style.setProperty("--per-view", String(visible));
+          window.cancelAnimationFrame(transitionFrame);
+          track.style.transition = animate ? "" : "none";
+          slides.forEach(function (slide, index) {
+            slide.classList.toggle("is-carousel-active", index === physicalIndex);
+          });
+          var offset = (viewport.clientWidth / 2) - (target.offsetLeft + (target.offsetWidth / 2));
+          track.style.transform = "translate3d(" + offset + "px, 0, 0)";
+          Array.from(dots.children).forEach(function (dot, index) {
+            dot.setAttribute("aria-current", index === normalize(current) ? "true" : "false");
+          });
+          if (!animate) {
+            void track.offsetWidth;
+            transitionFrame = window.requestAnimationFrame(function () {
+              track.style.transition = "";
+            });
+          }
+        }
+        function refresh() {
+          root.classList.remove("is-sliding");
+          current = normalize(current);
+          buildLoop();
+          renderDots();
+          update(false);
+        }
+        function move(step) {
+          if (root.classList.contains("is-sliding")) return;
+          root.classList.add("is-sliding");
+          current += step;
+          update(true);
+        }
+        function stopAutoPlay() {
+          window.clearInterval(timer);
+        }
+        function startAutoPlay() {
+          stopAutoPlay();
+          timer = window.setInterval(function () {
+            if (root.offsetParent !== null) move(1);
+          }, 4000);
+        }
+
+        prev.addEventListener("click", function () { move(-1); startAutoPlay(); });
+        next.addEventListener("click", function () { move(1); startAutoPlay(); });
+        dots.addEventListener("click", function (event) {
+          var dot = event.target.closest(".carousel-dot");
+          if (!dot || root.classList.contains("is-sliding")) return;
+          var targetIndex = Number(dot.dataset.index);
+          var difference = targetIndex - normalize(current);
+          if (difference > items.length / 2) difference -= items.length;
+          if (difference < -(items.length / 2)) difference += items.length;
+          if (difference === 0) return;
+          root.classList.add("is-sliding");
+          current += difference;
+          update(true);
+          startAutoPlay();
+        });
+        track.addEventListener("transitionend", function (event) {
+          if (event.target !== track || event.propertyName !== "transform") return;
+          if (current >= items.length || current < 0) {
+            current = normalize(current);
+            update(false);
+          }
+          root.classList.remove("is-sliding");
+        });
+        root.addEventListener("mouseenter", stopAutoPlay);
+        root.addEventListener("mouseleave", startAutoPlay);
+        root.addEventListener("focusin", stopAutoPlay);
+        root.addEventListener("focusout", startAutoPlay);
+        root.addEventListener("pointerdown", function (event) { pointerStart = event.clientX; });
+        root.addEventListener("pointerup", function (event) {
+          if (pointerStart === null) return;
+          var distance = event.clientX - pointerStart;
+          pointerStart = null;
+          if (Math.abs(distance) > 42) {
+            move(distance < 0 ? 1 : -1);
+            startAutoPlay();
+          }
+        });
+        root.addEventListener("pointercancel", function () { pointerStart = null; });
+        window.addEventListener("resize", refresh);
+
+        root._carouselRefresh = refresh;
+        refresh();
+        startAutoPlay();
+      });
+
+      document.querySelectorAll(".faq-q").forEach(function (button) {
+        button.addEventListener("click", function () {
+          var item = button.closest(".faq-item");
+          var willOpen = !item.classList.contains("is-open");
+          document.querySelectorAll(".faq-item").forEach(function (other) {
+            other.classList.remove("is-open");
+            other.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+          });
+          if (willOpen) {
+            item.classList.add("is-open");
+            button.setAttribute("aria-expanded", "true");
+          }
+        });
+      });
+
+      document.getElementById("career-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        event.currentTarget.style.display = "none";
+        document.getElementById("thanks").style.display = "block";
+      });
+    })();
+  </script>
+</body>
+</html>
