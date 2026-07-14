@@ -559,11 +559,21 @@
       border: 1px solid rgba(23,105,176,.35);
       border-radius: 50%;
       box-shadow: 0 6px 16px rgba(16,43,82,.1);
-      font-size: 24px;
+      font-size: 0;
       line-height: 1;
       cursor: pointer;
       transition: color .2s ease, background .2s ease, transform .2s ease;
     }
+    .carousel-button::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-top: 2px solid currentColor;
+      border-right: 2px solid currentColor;
+      transform: rotate(45deg);
+      transform-origin: center;
+    }
+    .carousel-prev::before { transform: rotate(-135deg); }
     .carousel-button:hover { color: #fff; background: var(--blue); transform: translateY(-2px); }
     .carousel-dots { display: flex; align-items: center; justify-content: center; gap: 7px; min-width: 76px; }
     .carousel-dot {
@@ -577,7 +587,7 @@
       transition: width .25s ease, background .25s ease;
     }
     .carousel-dot[aria-current="true"] { width: 22px; background: var(--blue); border-radius: 999px; }
-    .jobs-section .carousel-button { background: #fff; }
+    .jobs-section .carousel-button:not(:hover) { background: #fff; }
     .cases-section .carousel-dot[aria-current="true"] { background: var(--purple); }
     .voices .carousel-dot[aria-current="true"] { background: #a35599; }
 
