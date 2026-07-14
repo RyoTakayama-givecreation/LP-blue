@@ -189,55 +189,56 @@
       display: flex;
       align-items: center;
       isolation: isolate;
-      background: var(--navy-deep);
+      background: #f3f5fb;
     }
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
       z-index: -2;
-      background: url("assets/images/hero-engineer.png") 58% center / cover no-repeat;
+      background: url("assets/images/bc.png") center / cover no-repeat;
     }
     .hero::after {
       content: "";
       position: absolute;
       inset: 0;
       z-index: -1;
-      background:
-        linear-gradient(90deg, rgba(4, 24, 49, .98) 0%, rgba(8, 37, 72, .92) 38%, rgba(9, 39, 75, .36) 68%, rgba(5, 28, 56, .04) 100%),
-        linear-gradient(180deg, rgba(6, 28, 56, .08), rgba(6, 28, 56, .5));
+      background: linear-gradient(90deg, rgba(255,255,255,.94) 0%, rgba(255,255,255,.84) 43%, rgba(255,255,255,.42) 70%, rgba(255,255,255,.08) 100%);
     }
     .hero-inner {
       width: min(1160px, 100%);
       margin: 0 auto;
       padding: 84px clamp(38px, 6vw, 92px) 112px;
     }
-    .hero-content { width: min(610px, 58%); color: #fff; }
+    .hero-content { width: min(780px, 78%); color: var(--navy); }
     .hero-kicker {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       margin-bottom: 20px;
       padding: 8px 14px;
-      background: rgba(30, 161, 228, .14);
-      border: 1px solid rgba(114, 211, 255, .62);
+      background: rgba(255,255,255,.74);
+      border: 1px solid rgba(23,105,176,.38);
       border-radius: 4px;
-      color: #d9f4ff;
+      color: var(--blue);
       font-size: 13px;
       font-weight: 600;
     }
     .hero-kicker::before { content: ""; width: 8px; height: 8px; background: var(--orange); transform: rotate(45deg); }
     .hero h1 {
       margin: 0 0 22px;
-      font-size: clamp(42px, 5.2vw, 74px);
-      font-weight: 900;
-      line-height: 1.19;
-      text-shadow: 0 4px 18px rgba(0, 0, 0, .2);
+      font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: clamp(42px, 4.3vw, 58px);
+      font-weight: 600;
+      letter-spacing: .018em;
+      line-height: 1.36;
+      text-shadow: none;
     }
-    .hero h1 em { color: #65c9f4; font-style: normal; }
+    .hero h1 > span { display: block; white-space: nowrap; }
+    .hero h1 em { color: var(--blue); font-style: normal; }
     .hero-lead {
       margin: 0 0 25px;
-      color: #e4edf7;
+      color: #273b55;
       font-size: clamp(15px, 1.5vw, 19px);
       font-weight: 400;
       line-height: 2;
@@ -245,12 +246,13 @@
     .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .hero-tags span {
       padding: 8px 12px;
-      color: #fff;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.28);
+      color: var(--navy);
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(23,105,176,.2);
       border-radius: 999px;
       font-size: 12px;
       font-weight: 600;
+      box-shadow: 0 5px 14px rgba(16,43,82,.08);
       backdrop-filter: blur(8px);
     }
     .hero-scroll {
@@ -260,10 +262,10 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      color: rgba(255,255,255,.68);
+      color: rgba(16,43,82,.62);
       font-size: 10px;
     }
-    .hero-scroll::after { content: ""; width: 58px; height: 1px; background: rgba(255,255,255,.55); }
+    .hero-scroll::after { content: ""; width: 58px; height: 1px; background: rgba(16,43,82,.42); }
 
     .trust-strip {
       position: relative;
@@ -745,13 +747,13 @@
       .mobile-header .btn { min-height: 40px; padding: 9px 15px; font-size: 12px; }
       .page { margin-left: 0; }
       .hero { min-height: 680px; align-items: flex-end; }
-      .hero::before { background-position: 62% center; }
+      .hero::before { background-position: 76% center; }
       .hero::after {
-        background: linear-gradient(180deg, rgba(6,28,56,.06) 12%, rgba(6,28,56,.48) 43%, rgba(5,25,50,.98) 78%, rgba(5,25,50,1) 100%);
+        background: linear-gradient(180deg, rgba(255,255,255,.18) 4%, rgba(255,255,255,.72) 48%, rgba(247,249,253,.97) 100%);
       }
-      .hero-inner { padding: 330px 24px 66px; }
+      .hero-inner { padding: 230px 24px 82px; }
       .hero-content { width: 100%; }
-      .hero h1 { font-size: clamp(38px, 10vw, 56px); }
+      .hero h1 { font-size: clamp(30px, 8vw, 38px); letter-spacing: .01em; }
       .hero-lead { font-size: 14px; line-height: 1.85; }
       .hero-scroll { display: none; }
       .trust-strip { width: calc(100% - 32px); margin-top: -28px; padding: 18px 10px; }
@@ -800,8 +802,8 @@
       .mobile-header img { width: 132px; }
       .mobile-header .btn { padding-right: 12px; padding-left: 12px; font-size: 11px; }
       .hero { min-height: 650px; }
-      .hero-inner { padding-top: 310px; }
-      .hero h1 { font-size: 38px; }
+      .hero-inner { padding-top: 180px; }
+      .hero h1 { font-size: clamp(30px, 8vw, 36px); }
       .hero-kicker { font-size: 11px; }
       .hero-tags span { font-size: 10px; }
       .section-title { font-size: 28px; }
@@ -851,7 +853,7 @@
         <div class="hero-inner">
           <div class="hero-content">
             <div class="hero-kicker">現場経験を活かす、メーカー転職支援</div>
-            <h1 class="display">現場で磨いた技術を、<br><em>次のキャリア</em>へ。</h1>
+            <h1><span>大手メーカーで叶える、</span><span><em>無理のない働き方</em>と、</span><span>納得できる年収。</span></h1>
             <p class="hero-lead">施工管理・整備士・製造職から、大手・優良メーカーへ。<br>年収を守りながら、土日休み・日勤・出張なしを目指せます。</p>
             <div class="hero-tags">
               <span>大手メーカー求人</span>
