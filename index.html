@@ -786,6 +786,7 @@
     .final-checks { display: grid; gap: 8px; margin-top: 20px; color: var(--navy); font-size: 12px; font-weight: 600; }
     .final-checks span::before { content: "✓"; margin-right: 8px; color: var(--orange); }
     .form-card { padding: 28px; background: #fff; border-radius: 18px; box-shadow: var(--shadow); }
+    .form-brand { display: none; }
     .form-card h3 { margin: 0 0 20px; color: var(--navy); font-size: 19px; font-weight: 600; text-align: center; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .field { display: grid; gap: 6px; margin-bottom: 13px; }
@@ -824,20 +825,16 @@
       body { background: #fff; padding-bottom: 76px; }
       .desktop-side { display: none; }
       .mobile-header {
-        position: sticky;
-        top: 0;
-        z-index: 60;
+        position: relative;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         min-height: 64px;
         padding: 10px 18px;
-        background: rgba(255,255,255,.96);
+        background: #fff;
         border-bottom: 1px solid var(--line);
-        backdrop-filter: blur(10px);
       }
       .mobile-header img { width: 126px; height: 44px; object-fit: contain; }
-      .mobile-header .btn { min-height: 40px; padding: 9px 15px; font-size: 12px; }
       .page { margin-left: 0; }
       .hero { min-height: 680px; align-items: flex-end; }
       .hero-inner { padding: 230px 24px 82px; }
@@ -870,6 +867,14 @@
       .final-grid { grid-template-columns: 1fr; gap: 28px; }
       .final-copy { text-align: center; }
       .final-checks { justify-content: center; }
+      .form-card { scroll-margin-top: 16px; }
+      .form-brand {
+        display: block;
+        width: 118px;
+        height: auto;
+        margin: 0 auto 14px;
+        object-fit: contain;
+      }
       .mobile-sticky {
         position: fixed;
         inset: auto 0 0;
@@ -888,7 +893,6 @@
 
     @media (max-width: 560px) {
       .mobile-header img { width: 116px; height: 42px; }
-      .mobile-header .btn { padding-right: 12px; padding-left: 12px; font-size: 11px; }
       .logo-marquee { padding: 24px 0 38px; }
       .logo-marquee-row + .logo-marquee-row { margin-top: 10px; }
       .logo-marquee-group { gap: 10px; padding-right: 10px; }
@@ -917,9 +921,9 @@
         letter-spacing: 0;
       }
       .choice-inner h2 {
-        width: calc(100% + 24px);
-        margin-left: -12px;
-        font-size: clamp(17.5px, 5.55vw, 25px);
+        width: calc(100% + 32px);
+        margin-left: -16px;
+        font-size: clamp(19px, 6.5vw, 28px);
         letter-spacing: .01em;
         white-space: nowrap;
         text-wrap: nowrap;
@@ -1001,7 +1005,6 @@
 
   <header class="mobile-header">
     <img src="assets/images/givecreation-logo.jpg" alt="Give Creation">
-    <button class="btn btn-primary js-scroll-form">無料で相談</button>
   </header>
 
   <div class="page">
@@ -1221,6 +1224,7 @@
             <div class="final-checks"><span>登録は約60秒・完全無料</span><span>平日夜・土曜の面談OK</span><span>ご希望以外のしつこい連絡なし</span></div>
           </div>
           <div class="form-card">
+            <img class="form-brand" src="assets/images/givecreation-logo.jpg" alt="Give Creation">
             <form id="career-form">
               <h3>無料キャリア相談</h3>
               <div class="form-row">
@@ -1304,9 +1308,11 @@
       }
 
       var formSection = document.getElementById("consultation-form");
+      var formCard = document.querySelector(".form-card");
       document.querySelectorAll(".js-scroll-form").forEach(function (button) {
         button.addEventListener("click", function () {
-          formSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          var scrollTarget = window.matchMedia("(max-width: 960px)").matches ? formCard : formSection;
+          scrollTarget.scrollIntoView({ behavior: "smooth", block: "start" });
         });
       });
 
