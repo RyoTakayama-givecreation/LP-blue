@@ -373,30 +373,33 @@
     .pains-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .pain {
       position: relative;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding: 22px;
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr);
+      align-items: start;
+      gap: 16px;
+      padding: 24px 24px 22px;
       background: #fff;
       border: 1px solid #e4e9ef;
       border-radius: 14px;
       box-shadow: 0 8px 25px rgba(16, 43, 82, .05);
     }
-    .pain-icon {
-      flex: 0 0 38px;
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      color: #fff;
-      background: var(--navy);
+    .pain-avatar {
+      display: block;
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border: 1px solid rgba(16, 43, 82, .12);
       border-radius: 50%;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      font-weight: 700;
     }
-    .pain p { margin: 0 0 8px; font-size: 14px; font-weight: 400; line-height: 1.85; }
-    .pain small { color: #27313d; }
+    .pain p { margin: 0; color: var(--ink); font-size: 15px; font-weight: 400; line-height: 1.85; }
+    .pain small {
+      display: block;
+      margin-bottom: 11px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .06em;
+    }
     .pain-answer {
       margin: 34px 0 0;
       color: var(--navy);
@@ -580,13 +583,25 @@
     }
     .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .voice {
+      display: flex;
+      flex-direction: column;
       padding: 26px 22px;
       background: var(--mist);
       border-top: 4px solid var(--sky);
       border-radius: 0 0 14px 14px;
     }
     .voice-stars { color: var(--gold); letter-spacing: 2px; }
-    .voice p { margin: 15px 0; color: #202733; font-size: 13px; font-weight: 400; line-height: 1.9; }
+    .voice p { flex: 1; margin: 15px 0 18px; color: #202733; font-size: 13px; font-weight: 400; line-height: 1.9; }
+    .voice-author { display: flex; align-items: center; gap: 10px; }
+    .voice-avatar {
+      display: block;
+      flex: 0 0 48px;
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border: 1px solid rgba(86, 52, 181, .14);
+      border-radius: 50%;
+    }
     .voice small { color: var(--muted); font-weight: 600; }
 
     .auto-carousel {
@@ -930,7 +945,8 @@
         white-space: nowrap;
         text-wrap: nowrap;
       }
-      .pain { padding: 18px; }
+      .pain { grid-template-columns: 56px minmax(0, 1fr); gap: 13px; padding: 18px; }
+      .pain-avatar { width: 56px; height: 56px; }
       .job-tabs { gap: 5px; }
       .job-tab { flex: 1; padding: 10px 6px; font-size: 11px; }
       .case-card, .voice { flex-basis: 89%; }
@@ -1053,10 +1069,10 @@
             <div class="section-rule"></div>
           </div>
           <div class="pains-grid">
-            <article class="pain"><span class="pain-icon">“</span><div><p>大手メーカーに行きたい。でも現場上がりでは書類で落ちそう。</p><small>29歳・製造オペレーター</small></div></article>
-            <article class="pain"><span class="pain-icon">“</span><div><p>夜勤・交替勤務がきつい。年収は下げずに日勤へ変えたい。</p><small>32歳・製造職</small></div></article>
-            <article class="pain"><span class="pain-icon">“</span><div><p>長期出張ばかりで、家に帰れるのは月に数回だけ。</p><small>34歳・施工管理</small></div></article>
-            <article class="pain"><span class="pain-icon">“</span><div><p>土日休みで年収も維持したい。わがままだと思って言えない。</p><small>31歳・自動車整備士</small></div></article>
+            <article class="pain"><img class="pain-avatar" src="assets/images/avatars/pain-manufacturing-operator.png" alt="" loading="lazy" decoding="async"><div><small>29歳・製造オペレーター</small><p>大手メーカーに行きたい。でも現場上がりでは書類で落ちそう。</p></div></article>
+            <article class="pain"><img class="pain-avatar" src="assets/images/avatars/pain-manufacturing-worker.png" alt="" loading="lazy" decoding="async"><div><small>32歳・製造職</small><p>夜勤・交替勤務がきつい。年収は下げずに日勤へ変えたい。</p></div></article>
+            <article class="pain"><img class="pain-avatar" src="assets/images/avatars/pain-construction-manager.png" alt="" loading="lazy" decoding="async"><div><small>34歳・施工管理</small><p>長期出張ばかりで、家に帰れるのは月に数回だけ。</p></div></article>
+            <article class="pain"><img class="pain-avatar" src="assets/images/avatars/pain-auto-mechanic.png" alt="" loading="lazy" decoding="async"><div><small>31歳・自動車整備士</small><p>土日休みで年収も維持したい。わがままだと思って言えない。</p></div></article>
           </div>
           <p class="pain-answer"><span class="answer-line">ギブクリエーションなら、</span><strong class="answer-line"><span class="scroll-highlight sharp-serif">働き方も年収も、変えられます。</span></strong></p>
         </div>
@@ -1161,12 +1177,12 @@
           </div>
           <div class="auto-carousel" data-carousel data-desktop-view="3" aria-label="利用者の声カルーセル">
             <div class="carousel-viewport"><div class="voice-grid carousel-track">
-              <article class="voice"><div class="voice-stars">★★★★★</div><p><span class="scroll-highlight">転職を急かされなかった</span>のが一番良かった。半年悩みましたが、最後まで付き合ってくれました。</p><small>30代・製造職</small></article>
-              <article class="voice"><div class="voice-stars">★★★★★</div><p>面談が平日の夜でもOKだったので、<span class="scroll-highlight">会社に知られずに進められました。</span></p><small>20代・自動車整備士</small></article>
-              <article class="voice"><div class="voice-stars">★★★★★</div><p>「その会社、<span class="scroll-highlight">出張の実態はこうです</span>」と教えてくれるエージェントは初めてでした。</p><small>30代・施工管理</small></article>
-              <article class="voice"><div class="voice-stars">★★★★★</div><p><span class="scroll-highlight">自分では応募しなかった大手</span>を提案してもらい、書類の見せ方まで一緒に考えてくれました。</p><small>30代・設備保全</small></article>
-              <article class="voice"><div class="voice-stars">★★★★★</div><p>年収だけでなく、<span class="scroll-highlight">夜勤をなくしたい</span>という希望を最後まで優先してくれました。</p><small>30代・製造オペレーター</small></article>
-              <article class="voice"><div class="voice-stars">★★★★★</div><p>家族との時間を増やしたいと相談したら、<span class="scroll-highlight">出張頻度まで確認した求人だけ</span>を紹介してくれました。</p><small>30代・施工管理</small></article>
+              <article class="voice"><div class="voice-stars">★★★★★</div><p><span class="scroll-highlight">転職を急かされなかった</span>のが一番良かった。半年悩みましたが、最後まで付き合ってくれました。</p><div class="voice-author"><img class="voice-avatar" src="assets/images/avatars/voice-manufacturing.png" alt="" loading="lazy" decoding="async"><small>30代・製造職</small></div></article>
+              <article class="voice"><div class="voice-stars">★★★★★</div><p>面談が平日の夜でもOKだったので、<span class="scroll-highlight">会社に知られずに進められました。</span></p><div class="voice-author"><img class="voice-avatar" src="assets/images/avatars/voice-auto-mechanic.png" alt="" loading="lazy" decoding="async"><small>20代・自動車整備士</small></div></article>
+              <article class="voice"><div class="voice-stars">★★★★★</div><p>「その会社、<span class="scroll-highlight">出張の実態はこうです</span>」と教えてくれるエージェントは初めてでした。</p><div class="voice-author"><img class="voice-avatar" src="assets/images/avatars/voice-construction.png" alt="" loading="lazy" decoding="async"><small>30代・施工管理</small></div></article>
+              <article class="voice"><div class="voice-stars">★★★★★</div><p><span class="scroll-highlight">自分では応募しなかった大手</span>を提案してもらい、書類の見せ方まで一緒に考えてくれました。</p><div class="voice-author"><img class="voice-avatar" src="assets/images/avatars/voice-maintenance.png" alt="" loading="lazy" decoding="async"><small>30代・設備保全</small></div></article>
+              <article class="voice"><div class="voice-stars">★★★★★</div><p>年収だけでなく、<span class="scroll-highlight">夜勤をなくしたい</span>という希望を最後まで優先してくれました。</p><div class="voice-author"><img class="voice-avatar" src="assets/images/avatars/voice-operator.png" alt="" loading="lazy" decoding="async"><small>30代・製造オペレーター</small></div></article>
+              <article class="voice"><div class="voice-stars">★★★★★</div><p>家族との時間を増やしたいと相談したら、<span class="scroll-highlight">出張頻度まで確認した求人だけ</span>を紹介してくれました。</p><div class="voice-author"><img class="voice-avatar" src="assets/images/avatars/voice-construction-2.png" alt="" loading="lazy" decoding="async"><small>30代・施工管理</small></div></article>
             </div></div>
             <div class="carousel-controls"><button class="carousel-button carousel-prev" type="button" aria-label="前の利用者の声"></button><div class="carousel-dots"></div><button class="carousel-button carousel-next" type="button" aria-label="次の利用者の声"></button></div>
           </div>
