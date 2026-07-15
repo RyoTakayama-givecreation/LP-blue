@@ -357,10 +357,10 @@
       margin-inline: auto;
       white-space: nowrap;
     }
-    .section-title--fixed-lines { --sp-title-size: 7vw; }
-    .section-title--brand { --sp-title-size: 6.1vw; }
-    .section-title--long { --sp-title-size: 5vw; }
-    .section-title--medium { --sp-title-size: 6vw; }
+    .section-title--fixed-lines { --sp-title-size: 28px; --sp-title-min: 28px; }
+    .section-title--brand { --sp-title-size: 6.65vw; --sp-title-min: 20px; }
+    .section-title--long { --sp-title-size: 5.55vw; --sp-title-min: 17px; }
+    .section-title--medium { --sp-title-size: 6.5vw; --sp-title-min: 20px; }
     .section-sub { margin: 14px auto 0; max-width: 660px; color: var(--muted); font-size: 14px; line-height: 1.9; }
     .section-rule { width: 44px; height: 3px; margin: 20px auto 0; background: var(--orange); }
 
@@ -902,16 +902,24 @@
       .hero-tags span { font-size: 10px; }
       .section-title { font-size: 28px; }
       .section-title.section-title--fixed-lines {
-        font-size: clamp(16px, var(--sp-title-size), 28px);
+        width: calc(100% + 24px);
+        margin-left: -12px;
+        font-size: clamp(var(--sp-title-min), var(--sp-title-size), 28px);
         letter-spacing: .01em;
       }
       .section-title.section-title--long { letter-spacing: 0; }
+      .pain-answer {
+        width: calc(100% + 24px);
+        margin-left: -12px;
+      }
       .pain-answer strong.answer-line {
-        font-size: clamp(17px, 5.3vw, 30px);
+        font-size: clamp(18px, 5.8vw, 30px);
         letter-spacing: 0;
       }
       .choice-inner h2 {
-        font-size: clamp(17px, 5.5vw, 25px);
+        width: calc(100% + 24px);
+        margin-left: -12px;
+        font-size: clamp(17.5px, 5.55vw, 25px);
         letter-spacing: .01em;
         white-space: nowrap;
         text-wrap: nowrap;
@@ -1077,7 +1085,7 @@
         <div class="section-inner">
           <div class="section-head">
             <span class="section-no en">03 / Job examples</span>
-            <h2 class="section-title section-title--fixed-lines display"><span class="title-line">あなたの経験が活きる、</span><span class="title-line scroll-highlight">メーカー求人の一例</span></h2>
+            <h2 class="section-title section-title--fixed-lines section-title--medium display"><span class="title-line">あなたの経験が活きる、</span><span class="title-line scroll-highlight">メーカー求人の一例</span></h2>
             <p class="section-sub">職種を選ぶと求人例が切り替わります。非公開求人を含め、条件に合わせて個別にご案内します。</p>
             <div class="section-rule"></div>
           </div>
@@ -1121,7 +1129,7 @@
         <div class="section-inner">
           <div class="section-head">
             <span class="section-no en">04 / Success stories</span>
-            <h2 class="section-title section-title--fixed-lines display"><span class="title-line scroll-highlight">年収を守りながら、</span><span class="title-line"><span class="accent">働き方を変えた</span>転職事例</span></h2>
+            <h2 class="section-title section-title--fixed-lines section-title--medium display"><span class="title-line scroll-highlight">年収を守りながら、</span><span class="title-line"><span class="accent">働き方を変えた</span>転職事例</span></h2>
             <div class="section-rule"></div>
           </div>
           <div class="auto-carousel" data-carousel data-desktop-view="3" aria-label="転職成功事例カルーセル">
