@@ -350,6 +350,17 @@
       line-height: 1.55;
     }
     .section-title .accent { color: var(--blue); font-weight: 700; }
+    .section-title--fixed-lines .title-line {
+      display: block;
+      width: max-content;
+      max-width: 100%;
+      margin-inline: auto;
+      white-space: nowrap;
+    }
+    .section-title--fixed-lines { --sp-title-size: 7vw; }
+    .section-title--brand { --sp-title-size: 6.1vw; }
+    .section-title--long { --sp-title-size: 5vw; }
+    .section-title--medium { --sp-title-size: 6vw; }
     .section-sub { margin: 14px auto 0; max-width: 660px; color: var(--muted); font-size: 14px; line-height: 1.9; }
     .section-rule { width: 44px; height: 3px; margin: 20px auto 0; background: var(--orange); }
 
@@ -403,6 +414,13 @@
       font-size: clamp(30px, 4.2vw, 49px);
       font-weight: 700;
       line-height: 1.45;
+    }
+    .pain-answer .answer-line {
+      display: block;
+      width: max-content;
+      max-width: 100%;
+      margin-inline: auto;
+      white-space: nowrap;
     }
 
     .reasons {
@@ -704,7 +722,8 @@
       background: repeating-linear-gradient(135deg, transparent 0 18px, #fff 18px 19px);
     }
     .choice-inner { position: relative; width: min(820px, 100%); margin: auto; text-align: center; }
-    .choice-inner h2 { margin: 0 0 12px; font-size: clamp(25px, 3.5vw, 38px); font-weight: 600; letter-spacing: .025em; line-height: 1.55; }
+    .choice-inner h2 { margin: 0 0 12px; font-size: clamp(25px, 3.5vw, 38px); font-weight: 600; letter-spacing: .025em; line-height: 1.55; text-wrap: balance; }
+    .no-break { white-space: nowrap; }
     .choice-inner p { margin: 0 0 28px; color: #dce8f6; font-size: 14px; line-height: 1.9; }
     .choice-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .choice-buttons .btn { min-height: 64px; }
@@ -882,6 +901,21 @@
       .hero-kicker { font-size: 11px; }
       .hero-tags span { font-size: 10px; }
       .section-title { font-size: 28px; }
+      .section-title.section-title--fixed-lines {
+        font-size: clamp(16px, var(--sp-title-size), 28px);
+        letter-spacing: .01em;
+      }
+      .section-title.section-title--long { letter-spacing: 0; }
+      .pain-answer strong.answer-line {
+        font-size: clamp(17px, 5.3vw, 30px);
+        letter-spacing: 0;
+      }
+      .choice-inner h2 {
+        font-size: clamp(17px, 5.5vw, 25px);
+        letter-spacing: .01em;
+        white-space: nowrap;
+        text-wrap: nowrap;
+      }
       .pain { padding: 18px; }
       .job-tabs { gap: 5px; }
       .job-tab { flex: 1; padding: 10px 6px; font-size: 11px; }
@@ -1001,7 +1035,7 @@
         <div class="section-inner">
           <div class="section-head">
             <span class="section-no en">01 / Your concerns</span>
-            <h2 class="section-title display">その悩み、<br><span class="accent scroll-highlight">あきらめる理由</span>にしていませんか？</h2>
+            <h2 class="section-title section-title--fixed-lines section-title--long display"><span class="title-line">その悩み、</span><span class="title-line"><span class="accent scroll-highlight">あきらめる理由</span>にしていませんか？</span></h2>
             <div class="section-rule"></div>
           </div>
           <div class="pains-grid">
@@ -1010,7 +1044,7 @@
             <article class="pain"><span class="pain-icon">“</span><div><p>長期出張ばかりで、家に帰れるのは月に数回だけ。</p><small>34歳・施工管理</small></div></article>
             <article class="pain"><span class="pain-icon">“</span><div><p>土日休みで年収も維持したい。わがままだと思って言えない。</p><small>31歳・自動車整備士</small></div></article>
           </div>
-          <p class="pain-answer">ギブクリエーションなら、<br><strong><span class="scroll-highlight sharp-serif">働き方も年収も、変えられます。</span></strong></p>
+          <p class="pain-answer"><span class="answer-line">ギブクリエーションなら、</span><strong class="answer-line"><span class="scroll-highlight sharp-serif">働き方も年収も、変えられます。</span></strong></p>
         </div>
       </section>
 
@@ -1018,7 +1052,7 @@
         <div class="section-inner">
           <div class="section-head">
             <span class="section-no en">02 / Why GIVE CREATION</span>
-            <h2 class="section-title display">現場職の転職に、<br><span class="accent scroll-highlight scroll-highlight--soft">ギブクリエーションが強い理由</span></h2>
+            <h2 class="section-title section-title--fixed-lines section-title--brand display"><span class="title-line">現場職の転職に、</span><span class="title-line accent scroll-highlight scroll-highlight--soft">ギブクリエーションが強い理由</span></h2>
             <p class="section-sub">求人の数だけではなく、入社後の働き方まで。現場経験者が本当に知りたい情報を確認してから提案します。</p>
             <div class="section-rule"></div>
           </div>
@@ -1043,7 +1077,7 @@
         <div class="section-inner">
           <div class="section-head">
             <span class="section-no en">03 / Job examples</span>
-            <h2 class="section-title display">あなたの経験が活きる、<br><span class="scroll-highlight">メーカー求人の一例</span></h2>
+            <h2 class="section-title section-title--fixed-lines display"><span class="title-line">あなたの経験が活きる、</span><span class="title-line scroll-highlight">メーカー求人の一例</span></h2>
             <p class="section-sub">職種を選ぶと求人例が切り替わります。非公開求人を含め、条件に合わせて個別にご案内します。</p>
             <div class="section-rule"></div>
           </div>
@@ -1087,7 +1121,7 @@
         <div class="section-inner">
           <div class="section-head">
             <span class="section-no en">04 / Success stories</span>
-            <h2 class="section-title display"><span class="scroll-highlight">年収を守りながら、</span><br><span class="accent">働き方を変えた</span>転職事例</h2>
+            <h2 class="section-title section-title--fixed-lines display"><span class="title-line scroll-highlight">年収を守りながら、</span><span class="title-line"><span class="accent">働き方を変えた</span>転職事例</span></h2>
             <div class="section-rule"></div>
           </div>
           <div class="auto-carousel" data-carousel data-desktop-view="3" aria-label="転職成功事例カルーセル">
@@ -1108,7 +1142,7 @@
         <div class="section-inner">
           <div class="section-head">
             <span class="section-no en">05 / Voices</span>
-            <h2 class="section-title sharp-serif">利用者の声</h2>
+            <h2 class="section-title section-title--fixed-lines sharp-serif"><span class="title-line">利用者の声</span></h2>
             <div class="section-rule"></div>
           </div>
           <div class="auto-carousel" data-carousel data-desktop-view="3" aria-label="利用者の声カルーセル">
@@ -1129,7 +1163,7 @@
         <div class="section-inner">
           <div class="section-head">
             <span class="section-no en">06 / Simple steps</span>
-            <h2 class="section-title display">働きながらでも進められる、<br>転職サポートの流れ</h2>
+            <h2 class="section-title section-title--fixed-lines section-title--medium display"><span class="title-line">働きながらでも進められる、</span><span class="title-line">転職サポートの流れ</span></h2>
             <p class="section-sub">登録から内定まで、すべて無料。書類作成や日程調整も担当者がサポートします。</p>
             <div class="section-rule"></div>
           </div>
@@ -1144,7 +1178,7 @@
 
       <section class="choice-cta">
         <div class="choice-inner">
-          <h2 class="sharp-serif">まだ迷っていても、大丈夫です。</h2>
+          <h2 class="sharp-serif">まだ迷っていても、<span class="no-break">大丈夫です。</span></h2>
           <p>「転職するかどうか」から一緒に考えるのが私たちの仕事です。今のお気持ちに近い入口を選んでください。</p>
           <div class="choice-buttons">
             <button class="btn btn-primary btn-invert-hover js-scroll-form">転職したいので相談する <span>›</span></button>
@@ -1157,7 +1191,7 @@
         <div class="section-inner">
           <div class="section-head">
             <span class="section-no en">07 / FAQ</span>
-            <h2 class="section-title display">よくあるご質問</h2>
+            <h2 class="section-title section-title--fixed-lines display"><span class="title-line">よくあるご質問</span></h2>
             <div class="section-rule"></div>
           </div>
           <div class="faq-list">
