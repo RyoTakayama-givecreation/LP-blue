@@ -579,7 +579,13 @@
       width: 100%;
       overflow: hidden;
       padding: 4px 0 18px;
+      touch-action: pan-y;
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: grab;
     }
+    .auto-carousel.is-dragging .carousel-viewport { cursor: grabbing; }
+    .carousel-viewport img { -webkit-user-drag: none; }
     .carousel-track {
       display: flex !important;
       align-items: stretch;
@@ -614,29 +620,31 @@
     .carousel-button {
       width: 42px;
       height: 42px;
-      display: grid;
-      place-items: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 0;
       color: var(--blue);
       background: rgba(255,255,255,.92);
       border: 1px solid rgba(23,105,176,.35);
       border-radius: 50%;
       box-shadow: 0 6px 16px rgba(16,43,82,.1);
-      font-size: 0;
-      line-height: 1;
       cursor: pointer;
       transition: color .2s ease, background .2s ease, transform .2s ease;
     }
     .carousel-button::before {
       content: "";
+      position: relative;
       width: 9px;
       height: 9px;
+      flex: 0 0 auto;
       border-top: 2px solid currentColor;
       border-right: 2px solid currentColor;
       transform: rotate(45deg);
       transform-origin: center;
     }
-    .carousel-prev::before { transform: rotate(-135deg); }
+    .carousel-prev::before { left: 2.4px; transform: rotate(-135deg); }
+    .carousel-next::before { left: -2.4px; }
     .carousel-button:hover { color: #fff; background: var(--blue); transform: translateY(-2px); }
     .carousel-dots { display: flex; align-items: center; justify-content: center; gap: 7px; min-width: 76px; }
     .carousel-dot {
@@ -726,10 +734,10 @@
     .faq-q b { color: var(--blue); font-family: Georgia, serif; font-size: 23px; }
     .faq-icon { color: var(--blue); font-size: 22px; transition: transform .25s ease; }
     .faq-item.is-open .faq-icon { transform: rotate(45deg); }
-    .faq-a { display: none; grid-template-columns: auto 1fr; gap: 14px; padding: 0 8px 24px; color: #202733; font-size: 13px; line-height: 1.9; }
+    .faq-a { display: none; grid-template-columns: auto 1fr; align-items: start; gap: 14px; padding: 0 8px 24px; color: #202733; font-size: 15px; line-height: 1.85; }
     .faq-item.is-open .faq-a { display: grid; }
-    .faq-a b { color: var(--orange); font-family: Georgia, serif; font-size: 23px; }
-    .faq-a p { margin: 2px 0 0; }
+    .faq-a b { color: var(--orange); font-family: Georgia, serif; font-size: 23px; line-height: 1.2; }
+    .faq-a p { margin: 0; }
 
     .final-section {
       padding: 100px clamp(28px, 5vw, 76px);
@@ -1051,7 +1059,7 @@
               <article class="job-card"><img class="job-card-image" src="assets/images/02_bg.webp" alt="自動車開発"><div class="job-card-body"><span class="job-type en">Vehicle testing</span><h3>完成車メーカー｜車両評価・走行試験</h3><strong class="salary display">年収 460〜590万円</strong><div class="tags"><span>開発部門</span><span>年間休日124日</span><span>経験者優遇</span></div><p>整備で培った異音・振動の感覚を、開発車両の評価業務に活かせます。</p></div></article>
               <article class="job-card"><img class="job-card-image" src="assets/images/04_image03.webp" alt="先進設備"><div class="job-card-body"><span class="job-type en">Technical trainer</span><h3>大手部品メーカー｜サービス技術・研修担当</h3><strong class="salary display">年収 500〜630万円</strong><div class="tags"><span>内勤中心</span><span>土日祝休み</span><span>整備資格歓迎</span></div><p>現場知識をマニュアル作成や技術研修へ。体力負担を減らしながら経験を活かせます。</p></div></article>
             </div></div>
-            <div class="carousel-controls"><button class="carousel-button carousel-prev" type="button" aria-label="前の求人">‹</button><div class="carousel-dots"></div><button class="carousel-button carousel-next" type="button" aria-label="次の求人">›</button></div>
+            <div class="carousel-controls"><button class="carousel-button carousel-prev" type="button" aria-label="前の求人"></button><div class="carousel-dots"></div><button class="carousel-button carousel-next" type="button" aria-label="次の求人"></button></div>
           </div>
           <div class="job-panel auto-carousel" data-job-panel="manufacturing" data-carousel data-desktop-view="2">
             <div class="carousel-viewport"><div class="carousel-track">
@@ -1060,7 +1068,7 @@
               <article class="job-card"><img class="job-card-image" src="assets/images/04_image01.webp" alt="製造ライン"><div class="job-card-body"><span class="job-type en">Quality control</span><h3>大手自動車部品メーカー｜品質管理</h3><strong class="salary display">年収 470〜610万円</strong><div class="tags"><span>日勤のみ</span><span>賞与5か月</span><span>改善経験歓迎</span></div><p>工程内検査や不良対策の経験を、メーカーの品質改善活動へつなげます。</p></div></article>
               <article class="job-card"><img class="job-card-image" src="assets/images/03_bg.webp" alt="機械部品"><div class="job-card-body"><span class="job-type en">Manufacturing leader</span><h3>大手機械メーカー｜製造リーダー候補</h3><strong class="salary display">年収 490〜620万円</strong><div class="tags"><span>正社員</span><span>班長経験歓迎</span><span>年間休日122日</span></div><p>現場での段取り・後輩指導を評価。マネジメントへキャリアを広げられます。</p></div></article>
             </div></div>
-            <div class="carousel-controls"><button class="carousel-button carousel-prev" type="button" aria-label="前の求人">‹</button><div class="carousel-dots"></div><button class="carousel-button carousel-next" type="button" aria-label="次の求人">›</button></div>
+            <div class="carousel-controls"><button class="carousel-button carousel-prev" type="button" aria-label="前の求人"></button><div class="carousel-dots"></div><button class="carousel-button carousel-next" type="button" aria-label="次の求人"></button></div>
           </div>
           <div class="job-panel auto-carousel" data-job-panel="construction" data-carousel data-desktop-view="2">
             <div class="carousel-viewport"><div class="carousel-track">
@@ -1069,7 +1077,7 @@
               <article class="job-card"><img class="job-card-image" src="assets/images/04_image03.webp" alt="スマートファクトリー"><div class="job-card-body"><span class="job-type en">Construction planning</span><h3>大手設備会社｜工事計画・安全品質管理</h3><strong class="salary display">年収 520〜680万円</strong><div class="tags"><span>本社勤務</span><span>現場常駐なし</span><span>経験者採用</span></div><p>現場経験を工事計画と安全品質の仕組みづくりに活かす上流ポジションです。</p></div></article>
               <article class="job-card"><img class="job-card-image" src="assets/images/01_bgb.webp" alt="設計イメージ"><div class="job-card-body"><span class="job-type en">Engineering support</span><h3>産業機械メーカー｜設計・積算サポート</h3><strong class="salary display">年収 470〜600万円</strong><div class="tags"><span>オフィス中心</span><span>CAD研修</span><span>土日祝休み</span></div><p>施工図や見積の経験を活かし、現場から設計・積算側へキャリアチェンジできます。</p></div></article>
             </div></div>
-            <div class="carousel-controls"><button class="carousel-button carousel-prev" type="button" aria-label="前の求人">‹</button><div class="carousel-dots"></div><button class="carousel-button carousel-next" type="button" aria-label="次の求人">›</button></div>
+            <div class="carousel-controls"><button class="carousel-button carousel-prev" type="button" aria-label="前の求人"></button><div class="carousel-dots"></div><button class="carousel-button carousel-next" type="button" aria-label="次の求人"></button></div>
           </div>
           <p class="jobs-note">※求人内容は一例です。募集状況やご経験によりご紹介可能な求人は異なります。</p>
         </div>
@@ -1091,7 +1099,7 @@
               <article class="case-card"><div class="case-top"><small>36歳・設備保全</small><h3>大手食品メーカーへ</h3></div><div class="case-body"><div class="career-change"><div class="career-box">交替勤務<br>設備保全</div><div class="career-arrow">›</div><div class="career-box">予防保全<br>リーダー</div></div><div class="case-results"><div class="case-result"><small>年収</small><strong>470→530万円</strong></div><div class="case-result"><small>勤務</small><strong>日勤中心</strong></div></div><p class="case-quote">「生活リズムが整い、子どもの行事にも参加できるようになりました。」</p></div></article>
               <article class="case-card"><div class="case-top"><small>30歳・施工管理</small><h3>大手設備メーカーへ</h3></div><div class="case-body"><div class="career-change"><div class="career-box">サブコン<br>施工管理</div><div class="career-arrow">›</div><div class="career-box">工事計画<br>安全管理</div></div><div class="case-results"><div class="case-result"><small>年収</small><strong>480→520万円</strong></div><div class="case-result"><small>勤務地</small><strong>転勤なし</strong></div></div><p class="case-quote">「現場経験を活かしながら、拠点勤務で先の予定を立てられるようになりました。」</p></div></article>
             </div></div>
-            <div class="carousel-controls"><button class="carousel-button carousel-prev" type="button" aria-label="前の転職事例">‹</button><div class="carousel-dots"></div><button class="carousel-button carousel-next" type="button" aria-label="次の転職事例">›</button></div>
+            <div class="carousel-controls"><button class="carousel-button carousel-prev" type="button" aria-label="前の転職事例"></button><div class="carousel-dots"></div><button class="carousel-button carousel-next" type="button" aria-label="次の転職事例"></button></div>
           </div>
         </div>
       </section>
@@ -1112,7 +1120,7 @@
               <article class="voice"><div class="voice-stars">★★★★★</div><p>年収だけでなく、<span class="scroll-highlight">夜勤をなくしたい</span>という希望を最後まで優先してくれました。</p><small>30代・製造オペレーター</small></article>
               <article class="voice"><div class="voice-stars">★★★★★</div><p>家族との時間を増やしたいと相談したら、<span class="scroll-highlight">出張頻度まで確認した求人だけ</span>を紹介してくれました。</p><small>30代・施工管理</small></article>
             </div></div>
-            <div class="carousel-controls"><button class="carousel-button carousel-prev" type="button" aria-label="前の利用者の声">‹</button><div class="carousel-dots"></div><button class="carousel-button carousel-next" type="button" aria-label="次の利用者の声">›</button></div>
+            <div class="carousel-controls"><button class="carousel-button carousel-prev" type="button" aria-label="前の利用者の声"></button><div class="carousel-dots"></div><button class="carousel-button carousel-next" type="button" aria-label="次の利用者の声"></button></div>
           </div>
         </div>
       </section>
@@ -1399,17 +1407,33 @@
         root.addEventListener("mouseleave", startAutoPlay);
         root.addEventListener("focusin", stopAutoPlay);
         root.addEventListener("focusout", startAutoPlay);
-        root.addEventListener("pointerdown", function (event) { pointerStart = event.clientX; });
-        root.addEventListener("pointerup", function (event) {
-          if (pointerStart === null) return;
-          var distance = event.clientX - pointerStart;
-          pointerStart = null;
-          if (Math.abs(distance) > 42) {
-            move(distance < 0 ? 1 : -1);
-            startAutoPlay();
-          }
+        viewport.addEventListener("pointerdown", function (event) {
+          if (event.pointerType === "mouse" && event.button !== 0) return;
+          pointerStart = { x: event.clientX, y: event.clientY, id: event.pointerId };
+          root.classList.add("is-dragging");
+          stopAutoPlay();
+          if (viewport.setPointerCapture) viewport.setPointerCapture(event.pointerId);
         });
-        root.addEventListener("pointercancel", function () { pointerStart = null; });
+        viewport.addEventListener("pointerup", function (event) {
+          if (pointerStart === null || pointerStart.id !== event.pointerId) return;
+          var distanceX = event.clientX - pointerStart.x;
+          var distanceY = event.clientY - pointerStart.y;
+          pointerStart = null;
+          root.classList.remove("is-dragging");
+          if (viewport.hasPointerCapture && viewport.hasPointerCapture(event.pointerId)) {
+            viewport.releasePointerCapture(event.pointerId);
+          }
+          if (Math.abs(distanceX) > 36 && Math.abs(distanceX) > Math.abs(distanceY) * 1.15) {
+            move(distanceX < 0 ? 1 : -1);
+          }
+          startAutoPlay();
+        });
+        viewport.addEventListener("pointercancel", function () {
+          pointerStart = null;
+          root.classList.remove("is-dragging");
+          startAutoPlay();
+        });
+        viewport.addEventListener("dragstart", function (event) { event.preventDefault(); });
         window.addEventListener("resize", refresh);
 
         root._carouselRefresh = refresh;
