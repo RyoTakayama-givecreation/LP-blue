@@ -89,9 +89,10 @@
       box-shadow: 12px 0 34px rgba(7, 28, 54, .08);
     }
     .side-logo {
-      width: 185px;
-      height: auto;
+      width: 170px;
+      height: 80px;
       margin: 0 auto 28px;
+      object-fit: contain;
     }
     .side-label {
       display: flex;
@@ -285,23 +286,58 @@
       box-shadow: 0 5px 14px rgba(16,43,82,.08);
       backdrop-filter: blur(8px);
     }
-    .hero-scroll {
-      position: absolute;
-      left: clamp(38px, 6vw, 92px);
-      bottom: 30px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: rgba(16,43,82,.62);
-      font-size: 10px;
+    .logo-marquee {
+      position: relative;
+      z-index: 3;
+      overflow: hidden;
+      padding: 32px 0 48px;
+      background: #fff;
+      border-top: 1px solid rgba(23, 105, 176, .08);
+      border-bottom: 1px solid rgba(23, 105, 176, .08);
     }
-    .hero-scroll::after { content: ""; width: 58px; height: 1px; background: rgba(16,43,82,.42); }
+    .logo-marquee-row { width: 100%; overflow: hidden; }
+    .logo-marquee-row + .logo-marquee-row { margin-top: 14px; }
+    .logo-marquee-track {
+      display: flex;
+      width: max-content;
+      will-change: transform;
+    }
+    .logo-marquee-track--ltr { animation: logo-marquee-ltr 46s linear infinite; }
+    .logo-marquee-track--rtl { animation: logo-marquee-rtl 46s linear infinite; }
+    .logo-marquee-group {
+      display: flex;
+      flex-shrink: 0;
+      gap: 14px;
+      padding-right: 14px;
+    }
+    .logo-marquee-item {
+      display: grid;
+      flex: 0 0 138px;
+      width: 138px;
+      height: 70px;
+      place-items: center;
+      overflow: hidden;
+    }
+    .logo-marquee-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .logo-marquee-item--04 img { transform: scale(.64); }
+    @keyframes logo-marquee-ltr {
+      from { transform: translate3d(-50%, 0, 0); }
+      to { transform: translate3d(0, 0, 0); }
+    }
+    @keyframes logo-marquee-rtl {
+      from { transform: translate3d(0, 0, 0); }
+      to { transform: translate3d(-50%, 0, 0); }
+    }
 
     .trust-strip {
       position: relative;
       z-index: 4;
       width: min(980px, calc(100% - 60px));
-      margin: -54px auto 0;
+      margin: -24px auto 0;
       padding: 22px 28px;
       background: linear-gradient(145deg, #ffffff 0%, #f2f8fd 100%);
       border-radius: 16px;
@@ -788,7 +824,7 @@
         border-bottom: 1px solid var(--line);
         backdrop-filter: blur(10px);
       }
-      .mobile-header img { width: 150px; }
+      .mobile-header img { width: 126px; height: 44px; object-fit: contain; }
       .mobile-header .btn { min-height: 40px; padding: 9px 15px; font-size: 12px; }
       .page { margin-left: 0; }
       .hero { min-height: 680px; align-items: flex-end; }
@@ -800,8 +836,7 @@
       .hero-content { width: 100%; }
       .hero h1 { font-size: clamp(30px, 8vw, 38px); letter-spacing: .01em; }
       .hero-lead { font-size: 14px; line-height: 1.85; }
-      .hero-scroll { display: none; }
-      .trust-strip { width: calc(100% - 32px); margin-top: -28px; padding: 18px 10px; }
+      .trust-strip { width: calc(100% - 32px); margin-top: -20px; padding: 18px 10px; }
       .stats { grid-template-columns: 1fr 1fr; }
       .stat { padding: 14px 8px; }
       .stat:nth-child(2) { border-right: 0; }
@@ -844,8 +879,14 @@
     }
 
     @media (max-width: 560px) {
-      .mobile-header img { width: 132px; }
+      .mobile-header img { width: 116px; height: 42px; }
       .mobile-header .btn { padding-right: 12px; padding-left: 12px; font-size: 11px; }
+      .logo-marquee { padding: 24px 0 38px; }
+      .logo-marquee-row + .logo-marquee-row { margin-top: 10px; }
+      .logo-marquee-group { gap: 10px; padding-right: 10px; }
+      .logo-marquee-item { flex-basis: 112px; width: 112px; height: 60px; }
+      .logo-marquee-track--ltr { animation-duration: 40s; }
+      .logo-marquee-track--rtl { animation-duration: 40s; }
       .hero { min-height: 650px; }
       .hero-inner { padding-top: 180px; }
       .hero h1 { font-size: clamp(30px, 8vw, 36px); }
@@ -863,6 +904,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
+      .logo-marquee-track { animation-play-state: paused; }
       .scroll-highlight {
         background-size: 100% .2em;
         transition: none;
@@ -891,10 +933,6 @@
       text-align: center;
     }
     .hero-tags { justify-content: center; }
-    .hero-scroll {
-      left: 50%;
-      transform: translateX(-50%);
-    }
 
     @media (max-width: 960px) {
       .hero {
@@ -902,6 +940,8 @@
         min-height: 650px;
         aspect-ratio: auto;
         align-items: center;
+        background-image: url("assets/images/bc-sp.png");
+        background-position: center center;
       }
       .hero-inner { padding: 72px 20px 94px; }
       .hero-content { width: 100%; }
@@ -915,7 +955,7 @@
 </head>
 <body>
   <aside class="desktop-side" aria-label="固定相談メニュー">
-    <img class="side-logo" src="assets/images/givecareer-logo.jpg" alt="Give Career">
+    <img class="side-logo" src="assets/images/givecreation-logo.jpg" alt="Give Creation">
     <h2 class="side-title display">その技術、<br><strong>大手メーカー</strong>で<br>活かそう。</h2>
     <p class="side-copy">整備士・製造・施工管理など、現場で培った経験をメーカーが評価する言葉に変えて届けます。</p>
     <div class="side-proof">
@@ -931,7 +971,7 @@
   </aside>
 
   <header class="mobile-header">
-    <img src="assets/images/givecareer-logo.jpg" alt="Give Career">
+    <img src="assets/images/givecreation-logo.jpg" alt="Give Creation">
     <button class="btn btn-primary js-scroll-form">無料で相談</button>
   </header>
 
@@ -950,7 +990,15 @@
             </div>
           </div>
         </div>
-        <div class="hero-scroll en">Scroll to discover</div>
+      </section>
+
+      <section class="logo-marquee" aria-label="メーカー企業ロゴ">
+        <div class="logo-marquee-row">
+          <div class="logo-marquee-track logo-marquee-track--ltr" data-logo-track data-logo-start="1" data-logo-end="16"></div>
+        </div>
+        <div class="logo-marquee-row">
+          <div class="logo-marquee-track logo-marquee-track--rtl" data-logo-track data-logo-start="17" data-logo-end="32"></div>
+        </div>
       </section>
 
       <div class="trust-strip" aria-label="Give Careerの実績">
@@ -1161,7 +1209,7 @@
       </section>
     </main>
 
-    <footer><img src="assets/images/givecareer-logo.jpg" alt="Give Career"><div>© Give Career. All rights reserved.</div></footer>
+    <footer><img src="assets/images/givecreation-logo.jpg" alt="Give Creation"><div>© Give Career. All rights reserved.</div></footer>
   </div>
 
   <div class="mobile-sticky" aria-label="固定相談ボタン">
@@ -1171,6 +1219,28 @@
 
   <script>
     (function () {
+      document.querySelectorAll("[data-logo-track]").forEach(function (track) {
+        var start = Number(track.dataset.logoStart);
+        var end = Number(track.dataset.logoEnd);
+        var group = document.createElement("div");
+        group.className = "logo-marquee-group";
+        for (var index = start; index <= end; index += 1) {
+          var item = document.createElement("span");
+          var logo = document.createElement("img");
+          item.className = "logo-marquee-item";
+          if (index === 4) item.classList.add("logo-marquee-item--04");
+          logo.src = "assets/images/logo/logo_slider" + String(index).padStart(2, "0") + ".webp";
+          logo.alt = "";
+          logo.loading = "lazy";
+          logo.decoding = "async";
+          item.appendChild(logo);
+          group.appendChild(item);
+        }
+        var duplicate = group.cloneNode(true);
+        duplicate.setAttribute("aria-hidden", "true");
+        track.append(group, duplicate);
+      });
+
       document.querySelectorAll(".salary").forEach(function (salary) {
         var match = salary.textContent.trim().match(/^年収\s*([0-9]+〜[0-9]+)万円$/);
         if (!match) return;
