@@ -253,23 +253,37 @@
     .hero h1 > span { display: block; white-space: nowrap; }
     .hero h1 em { color: var(--blue); font-style: normal; }
     .hero-lead {
-      margin: 0 0 25px;
+      margin: 0 0 15px;
       color: #273b55;
-      font-size: clamp(15px, 1.5vw, 19px);
+      font-size: clamp(14px, 1.3vw, 17px);
       font-weight: 400;
       line-height: 2;
     }
-    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .hero-tags span {
-      padding: 8px 12px;
-      color: var(--navy);
-      background: rgba(255,255,255,.78);
-      border: 1px solid rgba(23,105,176,.2);
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 600;
-      box-shadow: 0 5px 14px rgba(16,43,82,.08);
-      backdrop-filter: blur(8px);
+    .hero-awards {
+      width: min(520px, 100%);
+      margin: 16px auto 0;
+    }
+    .hero-award-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .hero-award {
+      display: grid;
+      aspect-ratio: 1;
+      place-items: center;
+    }
+    .hero-award-frame {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .hero-award-note {
+      margin: 7px auto 0;
+      color: #566477;
+      font-size: 8px;
+      line-height: 1.55;
+      text-align: center;
     }
     .logo-marquee {
       position: relative;
@@ -317,24 +331,6 @@
       from { transform: translate3d(0, 0, 0); }
       to { transform: translate3d(-50%, 0, 0); }
     }
-
-    .trust-strip {
-      position: relative;
-      z-index: 4;
-      width: min(980px, calc(100% - 60px));
-      margin: -24px auto 0;
-      padding: 22px 28px;
-      background: linear-gradient(145deg, #ffffff 0%, #f2f8fd 100%);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-    }
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); }
-    .stat { padding: 7px 18px; text-align: center; border-right: 1px solid var(--line); }
-    .stat:last-child { border-right: 0; }
-    .stat-label { display: block; margin-bottom: 6px; color: var(--muted); font-size: 11px; font-weight: 600; }
-    .stat-value { color: var(--blue); font-size: clamp(28px, 3.4vw, 42px); font-weight: 800; line-height: 1; }
-    .stat-value small { font-size: 13px; letter-spacing: 0; }
-    .stat-note { display: block; margin-top: 6px; color: #9aa3ae; font-size: 9px; }
 
     .section { padding: 104px clamp(28px, 5vw, 76px); }
     .section-inner { width: min(980px, 100%); margin: 0 auto; }
@@ -857,11 +853,6 @@
       .hero-content { width: 100%; }
       .hero h1 { font-size: clamp(30px, 8vw, 38px); letter-spacing: .01em; }
       .hero-lead { font-size: 14px; line-height: 1.85; }
-      .trust-strip { width: calc(100% - 32px); margin-top: -20px; padding: 18px 10px; }
-      .stats { grid-template-columns: 1fr 1fr; }
-      .stat { padding: 14px 8px; }
-      .stat:nth-child(2) { border-right: 0; }
-      .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
       .section { padding: 78px 20px; }
       .section-head { margin-bottom: 34px; }
       .pains-grid { grid-template-columns: 1fr; }
@@ -920,7 +911,6 @@
       .hero-inner { padding-top: 180px; }
       .hero h1 { font-size: clamp(30px, 8vw, 36px); }
       .hero-kicker { font-size: 11px; }
-      .hero-tags span { font-size: 10px; }
       .section-title { font-size: 28px; }
       .section-title.section-title--fixed-lines {
         width: calc(100% + 24px);
@@ -982,8 +972,9 @@
       width: min(900px, 100%);
       margin: 0 auto;
       text-align: center;
+      transform: translateY(44px);
     }
-    .hero-tags { justify-content: center; }
+    .hero-awards { margin-right: auto; margin-left: auto; }
 
     @media (max-width: 960px) {
       .hero {
@@ -995,7 +986,10 @@
         background-position: center center;
       }
       .hero-inner { padding: 72px 20px 94px; }
-      .hero-content { width: 100%; }
+      .hero-content { width: 100%; transform: translateY(28px); }
+      .hero-awards { margin-top: 12px; }
+      .hero-award-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; }
+      .hero-award-note { max-width: 330px; font-size: 8px; }
     }
 
     @media (max-width: 560px) {
@@ -1034,10 +1028,22 @@
             <div class="hero-kicker">現場経験を活かす、メーカー転職支援</div>
             <h1><span>大手メーカーで叶える、</span><span><em>無理のない働き方</em>と、</span><span>納得できる年収。</span></h1>
             <p class="hero-lead">施工管理・整備士・製造職から、大手・優良メーカーへ。<br>年収を守りながら、土日休み・日勤・出張なしを目指せます。</p>
-            <div class="hero-tags">
-              <span>大手メーカー求人</span>
-              <span>年収アップ事例あり</span>
-              <span>現場職に強い担当者</span>
+            <div class="hero-awards" aria-label="ギブクリエーションの実績">
+              <div class="hero-award-grid">
+                <div class="hero-award">
+                  <img class="hero-award-frame" src="assets/images/award01.svg" alt="メーカー転職 業界口コミ No.1">
+                </div>
+                <div class="hero-award">
+                  <img class="hero-award-frame" src="assets/images/award02.svg" alt="合格内定率 企業多数 No.1">
+                </div>
+                <div class="hero-award">
+                  <img class="hero-award-frame" src="assets/images/award03.svg" alt="短期離職率 1%以内">
+                </div>
+                <div class="hero-award">
+                  <img class="hero-award-frame" src="assets/images/award04.svg" alt="転職成功者 89%が年収アップ">
+                </div>
+              </div>
+              <p class="hero-award-note">※Googleビジネスプロフィールの口コミ評価4.9・口コミ600件以上（2026年7月時点）。年収UP率は転職成功者、短期離職率は入社者を対象とした当社集計。</p>
             </div>
           </div>
         </div>
@@ -1051,15 +1057,6 @@
           <div class="logo-marquee-track logo-marquee-track--rtl" data-logo-track data-logo-start="17" data-logo-end="32"></div>
         </div>
       </section>
-
-      <div class="trust-strip" aria-label="ギブクリエーションの実績">
-        <div class="stats">
-          <div class="stat"><span class="stat-label">現場職の登録者</span><strong class="stat-value display">1,400<small>名+</small></strong><span class="stat-note">2026年6月時点</span></div>
-          <div class="stat"><span class="stat-label">転職決定数</span><strong class="stat-value display">656<small>件</small></strong><span class="stat-note">累計実績</span></div>
-          <div class="stat"><span class="stat-label">年収維持・アップ率</span><strong class="stat-value display">87<small>%</small></strong><span class="stat-note">決定者のうち</span></div>
-          <div class="stat"><span class="stat-label">メーカー転職支援</span><strong class="stat-value display">No.1</strong><span class="stat-note">書類通過率</span></div>
-        </div>
-      </div>
 
       <section class="section pains-section">
         <div class="section-inner">
